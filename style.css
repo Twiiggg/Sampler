@@ -1,0 +1,32 @@
+body{
+    display: flex;
+    background-color: #000;
+    color: #fff;
+    font-family: cursive;
+    flex-direction: row;
+}
+
+div{
+    border: #fff double;
+    padding: 10px;
+}
+
+.leftbar{
+    width: 10vw;
+    height: 95vh
+}
+
+.main{
+    width: 90vw;
+    
+    
+    justify-content: center;
+}
+
+.sample{
+    
+}
+
+.rightbar{
+    display: none;
+}
