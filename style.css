@@ -8,12 +8,13 @@ body{
 
 div{
     border: #fff double;
-    padding: 10px;
+    padding: 1vh;
+    margin: 1vh;
 }
 
 .leftbar{
     width: 10vw;
-    height: 95vh
+    height: 93vh
 }
 
 .main{
@@ -24,9 +25,18 @@ div{
 }
 
 .sample{
-    
+    margin: 2vh;
+    padding: 0;
 }
 
 .rightbar{
     display: none;
+}
+
+input{
+    width: 97%;
+    height: 1vh;
+    border-radius: 5vh;
+    margin: 1vh;
+    padding: 1vh;
 }
