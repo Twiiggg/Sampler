@@ -1,16 +1,16 @@
-import WaveSurfer from 'wavesurfer.js'
+// import WaveSurfer from 'wavesurfer.js'
 
 const wavesurfer = WaveSurfer.create({
     container: '#waveform',
-    url: './audio/Fisrt Steps.mp3',
+    url: "./audio/First Steps.mp3",
     normalize: false,
     waveColor: "#7f7f7f",
     progressColor: "#56e45e",
     cursorColor: "#ffffff",
     cursorWidth: 2,
-    // barWidth: 2,
-    // barGap: 2,
-    // barRadius: 4,
+    barWidth: 2,
+    barGap: 2,
+    barRadius: 4,
     barAlign: "bottom",
     fillParent: true,   
     autoplay: false,
