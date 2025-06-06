@@ -1,6 +1,8 @@
+import WaveSurfer from 'wavesurfer.js'
+
 const wavesurfer = WaveSurfer.create({
     container: '#waveform',
-    url: '../audio/First Steps.mp3',
+    url: './audio/Fisrt Steps.mp3',
     normalize: false,
     waveColor: "#7f7f7f",
     progressColor: "#56e45e",
