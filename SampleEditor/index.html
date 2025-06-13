@@ -10,20 +10,21 @@
     <header> algo </header>
     <div class="midtainer">
         <div class="sidebar"> side ar </div>
-        <div class="main">
-            <div id="waveform"></div>   
-            <button type="button">prev</button>         
-            <button type="button">play pause</button>         
-            <button type="button">next</button>         
-            <button type="button">loop</button>
+        <div class="main" id="main">
+            <div id="waveform">
+            </div>   
+                <button type="button" id="prev">prev</button>         
+                <button type="button" id="playpause">play pause</button>         
+                <button type="button" id="next">next</button>         
+                <button type="button" id="loop">loop off</button>
 
-            <input type="range" name="volume" id="" min="" max="">
-            <input type="range" name="volume" id="" min="" max="">
+            <input type="range" name="volume" id="volume" step="0.01" min="0" max="1" value="1">
+            <input type="range" name="speed" id="speed" step="any" min="0.2" max="3" value="1">
 
         </div>
         <div class="sidebar"> outra bar </div>
     </div>
     <script src="https://unpkg.com/wavesurfer.js@7"></script>
-    <script src="./script.js"></script>
+    <script type="module" src="./script.js"></script>
 </body>
 </html> 
