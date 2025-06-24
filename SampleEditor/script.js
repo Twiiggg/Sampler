@@ -1,6 +1,6 @@
 // import WaveSurfer from '/../node_modules/wavesurfer.js'
 
-const wavesurfer = WaveSurfer.create({
+    let options= {
     container: '#waveform',
     url: "./audio/First Steps.mp3",
     normalize: false,
@@ -19,17 +19,40 @@ const wavesurfer = WaveSurfer.create({
     hideScrollbar: false,
     audioRate: 1,
     sampleRate: 8000
-})
+  }
 
+let wavesurfer = WaveSurfer.create(options)
 let prev = document.getElementById("prev")
 let playpause = document.getElementById("playpause")
 let next = document.getElementById("next")
-let loop = document.getElementById("loop")
 let volumeslider = document.getElementById("volume")
 let speed = document.getElementById("speed")
+let loop = document.getElementById("loop")
+let wfstyle = document.getElementById("wfstyle")
 
+let wfstyleMode = true
 let loopMode = false
 
+function wfstyling(toggle){
+  const position = wavesurfer.getCurrentTime();
+  const isPlaying = wavesurfer.isPlaying();
+  if (toggle) {
+    options.barWidth = 2
+    options.barGap = 2
+    wavesurfer.destroy()
+    wavesurfer = WaveSurfer.create(options)
+    
+  } else {    
+    options.barWidth = null
+    options.barGap = null
+    wavesurfer.destroy()
+    wavesurfer = WaveSurfer.create(options)
+  }
+  wavesurfer.once('ready', () => {
+    wavesurfer.setTime(position);
+    if (isPlaying) wavesurfer.play();
+  })
+}
 
 prev.addEventListener('click', () => {
   
@@ -44,11 +67,16 @@ loop.addEventListener('click', () => {
   loopMode = !loopMode;
   loop.textContent = loopMode ? 'loop on' : 'loop off';
 })
+// waveform styling toggle
+wfstyle.addEventListener('click', () => {
+  wfstyleMode = !wfstyleMode;
+  wfstyling(wfstyleMode)
+  wfstyle.textContent = wfstyleMode ? 'wfstyle on' : 'wfstyle off';
+})
 // Volume control
 volumeslider.addEventListener('input', () => {
   let volume = volumeslider.value
   volume = volume*volume
-  
   wavesurfer.setVolume(volume);
 });
 
@@ -63,16 +91,26 @@ playpause.addEventListener('click', () => {
   wavesurfer.playPause()
 })
 
+let timer
 window.addEventListener("keydown", event => {
-  if(event.key == " "){
-    setTimeout(500)
+  if(event.key == " " && !timer){
     wavesurfer.playPause()
-  }
+    timer = Date.now()
+  } 
 })
 window.addEventListener("keyup", event => {
   switch (event.key) {
     case " ":
+      let now = Date.now()
+      if (now - timer < 400) {
+        timer = null
+        break
+      }
+      timer = null
       wavesurfer.playPause()
+      break;
+    case "":
+
       break;
 
     default:
