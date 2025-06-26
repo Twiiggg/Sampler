@@ -3,7 +3,7 @@ import Spectrogram from '../node_modules/wavesurfer.js/dist/plugins/spectrogram.
 
 let options= {
   container: '#waveform',
-  url: "./audio/TheLickSwing.opus",
+  url: "./audio/TheAmenBreak.ogg",
   normalize: false,
   waveColor: "#7f7f7f",
   progressColor: "#56e45e",
@@ -35,9 +35,10 @@ let spectroOptions = {
 let wavesurfer = WaveSurfer.create(options)
 let spectrogram = wavesurfer.registerPlugin(Spectrogram.create(spectroOptions))
 
+
 // let prev = document.getElementById("prev")
-let playpause = document.getElementById("playpause")
 // let next = document.getElementById("next")
+let playpause = document.getElementById("playpause")
 let volumeslider = document.getElementById("volume")
 let volumeValue = document.getElementById("volumeValue")
 let speed = document.getElementById("speed")
@@ -45,12 +46,25 @@ let speedValue = document.getElementById("speedValue")
 let loop = document.getElementById("loop")
 let wfstyle = document.getElementById("wfstyle")
 let spectro = document.getElementById("spectro")
+let timeIndicator = document.getElementById("timeIndicator")
+// let throbber = document.getElementById("throbber")
 
 let wfstyleMode = true
 let loopMode = false
 let spectroMode = true
+let sampleDuration = 0
 
-// muda a estilização e toggle no espectrograma
+// indicador de duração
+wavesurfer.on('decode', (duration) => {
+  sampleDuration = duration
+  timeIndicator.innerHTML = "0.00/" + sampleDuration .toFixed(2)
+})
+// atualização
+wavesurfer.on('timeupdate', (currentTime) => {
+  timeIndicator.innerHTML = currentTime.toFixed(2) + "/" + sampleDuration.toFixed(2)
+})
+
+// muda a estilização 
 function wfstyling(){
   if (wfstyleMode) {
     options.barWidth = 2
@@ -64,16 +78,22 @@ function wfstyling(){
   }
   wavesurfer.setOptions(options) 
 }
+// toggle no espectrograma
 function spectroToggle(){
   if (spectroMode) {
-    spectrogram.create(spectroOptions)
+    spectrogram = wavesurfer.registerPlugin(Spectrogram.create(spectroOptions))
+    wavesurfer.setOptions(options)
   } else {
     spectrogram.destroy()
-    spectrogram.on('destroy', () => {console.log("thing")})
   }
 }
-// mostra e esconde o icone de carregando
-wavesurfer.on('destroy')
+
+wavesurfer.on('play', () => {
+  playpause.style.backgroundImage = "url('img/pause.png')"
+})
+wavesurfer.on('pause', () => {
+  playpause.style.backgroundImage = "url('img/play.png')"
+})
 
 // faz o loop funcionar
 wavesurfer.on('finish', () => {
@@ -83,19 +103,19 @@ wavesurfer.on('finish', () => {
 // Loop toggle
 loop.addEventListener('click', () => {
   loopMode = !loopMode;
-  loop.textContent = loopMode ? 'loop on' : 'loop off';
+  loop.style.backgroundImage = loopMode ? "url('img/loopon.png')" : "url('img/loopoff.png')";
 })
 // waveform styling toggle
 wfstyle.addEventListener('click', () => {
   wfstyleMode = !wfstyleMode;
   wfstyling()
-  wfstyle.textContent = wfstyleMode ? 'wfstyle on' : 'wfstyle off';
+  wfstyle.style.backgroundImage = wfstyleMode ? "url('img/styleon.png')" : "url('img/styleoff.png')";
 })
 // spectrogram toggle
 spectro.addEventListener('click', () => {
   spectroMode = !spectroMode;
   spectroToggle()
-  spectro.textContent = spectroMode ? 'spectrogram on' : 'spectrogram off';
+  spectro.textContent = spectroMode ? 'spec on' : 'spec off';
 })
 // Volume control
 volumeslider.addEventListener('input', () => {
