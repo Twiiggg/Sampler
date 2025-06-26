@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Perfil Artista</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="card" onclick="abrirBarraLateral()">
+    Clique no card para abrir a barra lateral
+  </div>
+
+  <div class="barra-lateral" id="barraLateral">
+    <button class="fechar-btn" onclick="fecharBarraLateral()">×</button>
+    <div class="perfil">
+      <div class="imagem-perfil">
+        <img src="037a4438-f36e-4c42-843c-e5f57ea0bf81.png" alt="Foto de perfil">
+      </div>
+      <h2>Só a foto</h2>
+      <p>apenas um artista<br>qualquer que só tem<br>a foto no perfil</p>
+    </div>
+  </div>
+
+  <script>
+    function abrirBarraLateral() {
+      document.getElementById("barraLateral").classList.add("ativa");
+    }
+
+    function fecharBarraLateral() {
+      document.getElementById("barraLateral").classList.remove("ativa");
+    }
+  </script>
+</body>
+</html>

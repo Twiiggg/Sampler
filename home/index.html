@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -28,6 +31,19 @@
         </a>
     </nav>
 
+    <div class="barra-lateral" id="barraLateral">
+        <button class="fechar-btn" onclick="fecharBarraLateral()">×</button>
+        <div class="perfil">
+            <div class="imagem-perfil">
+                <img src="../img/icon_big_user2.png" alt="Foto de perfil">
+            </div>
+            <h2><a href="">Usuário</a></h2>
+            <p>apenas um artista<br>qualquer que só tem<br>a foto no perfil</p>
+        </div>
+    </div>
+
+
+
     <div class="center">
         <div class="slider-container">
             <div class="header">
@@ -41,7 +57,7 @@
             <div class="slider" id="cardSlider">
                 <!-- Card 1 -->
                 <div class="card">
-                    <div class="card-waveform" onclick="playMusic()">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
                         <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
                         <!-- lmao -->
                         <div class="bars">
@@ -68,7 +84,7 @@
                         </div>
 
 
-                        <h2 class="title" onclick="playMusic()">Distorted kanye type beat</h2>
+                        <h2 class="title" onclick="abrirBarraLateral()">Distorted kanye type beat</h2>
 
                         <div class="user-info">
                             <a href="#" class="user-avatar"></a>
@@ -91,7 +107,7 @@
                 </div>
 
                 <div class="card">
-                    <div class="card-waveform" onclick="playMusic()">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
                         <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
                         <!-- lmao -->
                         <div class="bars">
@@ -118,7 +134,7 @@
                         </div>
 
 
-                        <h2 class="title" onclick="playMusic()">Pharrel 4 count tag</h2>
+                        <h2 class="title" onclick="abrirBarraLateral()">Pharrel 4 count tag</h2>
 
                         <div class="user-info">
                             <a href="#" class="user-avatar"></a>
@@ -141,7 +157,7 @@
                 </div>
 
                 <div class="card">
-                    <div class="card-waveform" onclick="playMusic()">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
                         <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
                         <!-- lmao -->
                         <div class="bars">
@@ -168,7 +184,7 @@
                         </div>
 
 
-                        <h2 class="title" onclick="playMusic()">Breakcore fast beat</h2>
+                        <h2 class="title" onclick="abrirBarraLateral()">Breakcore fast beat</h2>
 
                         <div class="user-info">
                             <a href="#" class="user-avatar"></a>
@@ -191,7 +207,7 @@
                 </div>
 
                 <div class="card">
-                    <div class="card-waveform" onclick="playMusic()">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
                         <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
                         <!-- lmao -->
                         <div class="bars">
@@ -218,7 +234,7 @@
                         </div>
 
 
-                        <h2 class="title" onclick="playMusic()">Electroswing sample</h2>
+                        <h2 class="title" onclick="abrirBarraLateral()">Electroswing sample</h2>
 
                         <div class="user-info">
                             <a href="#" class="user-avatar"></a>
@@ -241,7 +257,7 @@
                 </div>
 
                 <div class="card">
-                    <div class="card-waveform" onclick="playMusic()">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
                         <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
                         <!-- lmao -->
                         <div class="bars">
@@ -268,7 +284,7 @@
                         </div>
 
 
-                        <h2 class="title" onclick="playMusic()">Blah blah blah blah</h2>
+                        <h2 class="title" onclick="abrirBarraLateral()">Blah blah blah blah</h2>
 
                         <div class="user-info">
                             <a href="#" class="user-avatar"></a>
@@ -291,7 +307,7 @@
                 </div>
 
                 <div class="card">
-                    <div class="card-waveform" onclick="playMusic()">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
                         <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
                         <!-- lmao -->
                         <div class="bars">
@@ -318,7 +334,7 @@
                         </div>
 
 
-                        <h2 class="title" onclick="playMusic()">Distorted kanye type beat 2</h2>
+                        <h2 class="title" onclick="abrirBarraLateral()">Distorted kanye type beat 2</h2>
 
                         <div class="user-info">
                             <a href="#" class="user-avatar"></a>
@@ -341,7 +357,7 @@
                 </div>
 
                 <div class="card">
-                    <div class="card-waveform" onclick="playMusic()">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
                         <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
                         <!-- lmao -->
                         <div class="bars">
@@ -368,7 +384,7 @@
                         </div>
 
 
-                        <h2 class="title" onclick="playMusic()">Soft lo-fi slow sample</h2>
+                        <h2 class="title" onclick="abrirBarraLateral()">Soft lo-fi slow sample</h2>
 
                         <div class="user-info">
                             <a href="#" class="user-avatar"></a>
@@ -391,7 +407,7 @@
                 </div>
 
                 <div class="card">
-                    <div class="card-waveform" onclick="playMusic()">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
                         <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
                         <!-- lmao -->
                         <div class="bars">
@@ -418,7 +434,7 @@
                         </div>
 
 
-                        <h2 class="title" onclick="playMusic()">Distorted Kanye type beat 3</h2>
+                        <h2 class="title" onclick="abrirBarraLateral()">Distorted Kanye type beat 3</h2>
 
                         <div class="user-info">
                             <a href="#" class="user-avatar"></a>
@@ -441,7 +457,7 @@
                 </div>
 
                 <div class="card">
-                    <div class="card-waveform" onclick="playMusic()">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
                         <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
                         <!-- lmao -->
                         <div class="bars">
@@ -468,7 +484,7 @@
                         </div>
 
 
-                        <h2 class="title" onclick="playMusic()">Rain on brick sample</h2>
+                        <h2 class="title" onclick="abrirBarraLateral()">Rain on brick sample</h2>
 
                         <div class="user-info">
                             <a href="#" class="user-avatar"></a>
@@ -491,7 +507,7 @@
                 </div>
 
                 <div class="card">
-                    <div class="card-waveform" onclick="playMusic()">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
                         <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
                         <!-- lmao -->
                         <div class="bars">
@@ -518,7 +534,7 @@
                         </div>
 
 
-                        <h2 class="title" onclick="playMusic()">Jazz twisted sample</h2>
+                        <h2 class="title" onclick="abrirBarraLateral()">Jazz twisted sample</h2>
 
                         <div class="user-info">
                             <a href="#" class="user-avatar"></a>
@@ -556,7 +572,7 @@
             <div class="slider" id="cardSlider2">
                 <!-- Card 1 -->
                 <div class="card2">
-                    <div class="card-waveform" onclick="playMusic()">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
                         <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
                         <!-- lmao -->
                         <div class="bars">
@@ -583,7 +599,7 @@
                         </div>
 
 
-                        <h2 class="title" onclick="playMusic()">Distorted kanye type beat</h2>
+                        <h2 class="title" onclick="abrirBarraLateral()">Distorted kanye type beat</h2>
 
                         <div class="user-info">
                             <a href="#" class="user-avatar"></a>
@@ -606,7 +622,7 @@
                 </div>
 
                 <div class="card2">
-                    <div class="card-waveform" onclick="playMusic()">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
                         <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
                         <!-- lmao -->
                         <div class="bars">
@@ -633,7 +649,7 @@
                         </div>
 
 
-                        <h2 class="title" onclick="playMusic()">Pharrel 4 count tag</h2>
+                        <h2 class="title" onclick="abrirBarraLateral()">Pharrel 4 count tag</h2>
 
                         <div class="user-info">
                             <a href="#" class="user-avatar"></a>
@@ -656,7 +672,7 @@
                 </div>
 
                 <div class="card2">
-                    <div class="card-waveform" onclick="playMusic()">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
                         <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
                         <!-- lmao -->
                         <div class="bars">
@@ -683,7 +699,7 @@
                         </div>
 
 
-                        <h2 class="title" onclick="playMusic()">Breakcore fast beat</h2>
+                        <h2 class="title" onclick="abrirBarraLateral()">Breakcore fast beat</h2>
 
                         <div class="user-info">
                             <a href="#" class="user-avatar"></a>
@@ -706,7 +722,7 @@
                 </div>
 
                 <div class="card2">
-                    <div class="card-waveform" onclick="playMusic()">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
                         <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
                         <!-- lmao -->
                         <div class="bars">
@@ -733,7 +749,7 @@
                         </div>
 
 
-                        <h2 class="title" onclick="playMusic()">Electroswing sample</h2>
+                        <h2 class="title" onclick="abrirBarraLateral()">Electroswing sample</h2>
 
                         <div class="user-info">
                             <a href="#" class="user-avatar"></a>
@@ -756,7 +772,7 @@
                 </div>
 
                 <div class="card2">
-                    <div class="card-waveform" onclick="playMusic()">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
                         <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
                         <!-- lmao -->
                         <div class="bars">
@@ -783,7 +799,7 @@
                         </div>
 
 
-                        <h2 class="title" onclick="playMusic()">Blah blah blah blah</h2>
+                        <h2 class="title" onclick="abrirBarraLateral()">Blah blah blah blah</h2>
 
                         <div class="user-info">
                             <a href="#" class="user-avatar"></a>
@@ -806,7 +822,7 @@
                 </div>
 
                 <div class="card2">
-                    <div class="card-waveform" onclick="playMusic()">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
                         <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
                         <!-- lmao -->
                         <div class="bars">
@@ -833,7 +849,7 @@
                         </div>
 
 
-                        <h2 class="title" onclick="playMusic()">Distorted kanye type beat 2</h2>
+                        <h2 class="title" onclick="abrirBarraLateral()">Distorted kanye type beat 2</h2>
 
                         <div class="user-info">
                             <a href="#" class="user-avatar"></a>
@@ -856,7 +872,7 @@
                 </div>
 
                 <div class="card2">
-                    <div class="card-waveform" onclick="playMusic()">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
                         <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
                         <!-- lmao -->
                         <div class="bars">
@@ -883,7 +899,7 @@
                         </div>
 
 
-                        <h2 class="title" onclick="playMusic()">Soft lo-fi slow sample</h2>
+                        <h2 class="title" onclick="abrirBarraLateral()">Soft lo-fi slow sample</h2>
 
                         <div class="user-info">
                             <a href="#" class="user-avatar"></a>
@@ -906,7 +922,7 @@
                 </div>
 
                 <div class="card2">
-                    <div class="card-waveform" onclick="playMusic()">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
                         <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
                         <!-- lmao -->
                         <div class="bars">
@@ -933,7 +949,7 @@
                         </div>
 
 
-                        <h2 class="title" onclick="playMusic()">Distorted Kanye type beat 3</h2>
+                        <h2 class="title" onclick="abrirBarraLateral()">Distorted Kanye type beat 3</h2>
 
                         <div class="user-info">
                             <a href="#" class="user-avatar"></a>
@@ -956,7 +972,7 @@
                 </div>
 
                 <div class="card2">
-                    <div class="card-waveform" onclick="playMusic()">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
                         <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
                         <!-- lmao -->
                         <div class="bars">
@@ -983,7 +999,7 @@
                         </div>
 
 
-                        <h2 class="title" onclick="playMusic()">Rain on brick sample</h2>
+                        <h2 class="title" onclick="abrirBarraLateral()">Rain on brick sample</h2>
 
                         <div class="user-info">
                             <a href="#" class="user-avatar"></a>
@@ -1006,7 +1022,7 @@
                 </div>
 
                 <div class="card2">
-                    <div class="card-waveform" onclick="playMusic()">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
                         <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
                         <!-- lmao -->
                         <div class="bars">
@@ -1033,7 +1049,7 @@
                         </div>
 
 
-                        <h2 class="title" onclick="playMusic()">Jazz twisted sample</h2>
+                        <h2 class="title" onclick="abrirBarraLateral()">Jazz twisted sample</h2>
 
                         <div class="user-info">
                             <a href="#" class="user-avatar"></a>
@@ -1058,12 +1074,521 @@
         </div>
     </div>
 
-    <div class="sidebar-direita">
-        <h2 class="sidebar-title-direita"></h2>
-        <img src="../img/icon_big_user.png" alt="" srcset="" class="sidebar-img-direita">        
-        <p>aaaa</p>
-        
+    <div class="center">
+        <div class="slider-container">
+            <div class="header">
+                <a href=""><span class="tag">#rap</span></a>
+                <div class="arrows">
+                    <button class="arrow left" onclick="scrollSlider2(-1)">&#8592;</button>
+                    <button class="arrow right" onclick="scrollSlider2(1)">&#8594;</button>
+                </div>
+            </div>
+
+            <div class="slider" id="cardSlider2">
+                <!-- Card 1 -->
+                <div class="card2">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
+                        <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
+                        <!-- lmao -->
+                        <div class="bars">
+                            <div class="bar" style="height: 40%;"></div>
+                            <div class="bar" style="height: 75%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                            <div class="bar" style="height: 90%;"></div>
+                            <div class="bar" style="height: 100%;"></div>
+                            <div class="bar" style="height: 65%;"></div>
+                            <div class="bar" style="height: 85%;"></div>
+                            <div class="bar" style="height: 50%;"></div>
+                            <div class="bar" style="height: 30%;"></div>
+                            <div class="bar" style="height: 45%;"></div>
+                            <div class="bar" style="height: 70%;"></div>
+                            <div class="bar" style="height: 95%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                            <div class="bar" style="height: 80%;"></div>
+                            <div class="bar" style="height: 35%;"></div>
+                            <div class="bar" style="height: 68%;"></div>
+                            <div class="bar" style="height: 90%;"></div>
+                            <div class="bar" style="height: 55%;"></div>
+                            <div class="bar" style="height: 72%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                        </div>
+
+
+                        <h2 class="title" onclick="abrirBarraLateral()">Distorted kanye type beat</h2>
+
+                        <div class="user-info">
+                            <a href="#" class="user-avatar"></a>
+                            <a href="#" class="user-name">Usuário</a>
+                        </div>
+
+                        <div class="card-tags">
+                            <a href="#" class="card-tag">#4/4</a>
+                            <a href="#" class="card-tag">#144bpm</a>
+                            <a href="#" class="card-tag">#distorted</a>
+                            <a href="#" class="card-tag">#rap</a>
+                        </div>
+
+                        <div class="actions">
+                            <button title="Download"><img src="../img/icon_download.png" alt=""></button>
+                            <button title="Salvar"><img src="../img/icon_bookmark.png" alt=""></button>
+                            <button title="Curtir"><img src="../img/icon_like.png" alt=""></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card2">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
+                        <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
+                        <!-- lmao -->
+                        <div class="bars">
+                            <div class="bar" style="height: 40%;"></div>
+                            <div class="bar" style="height: 75%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                            <div class="bar" style="height: 90%;"></div>
+                            <div class="bar" style="height: 100%;"></div>
+                            <div class="bar" style="height: 65%;"></div>
+                            <div class="bar" style="height: 85%;"></div>
+                            <div class="bar" style="height: 50%;"></div>
+                            <div class="bar" style="height: 30%;"></div>
+                            <div class="bar" style="height: 45%;"></div>
+                            <div class="bar" style="height: 70%;"></div>
+                            <div class="bar" style="height: 95%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                            <div class="bar" style="height: 80%;"></div>
+                            <div class="bar" style="height: 35%;"></div>
+                            <div class="bar" style="height: 68%;"></div>
+                            <div class="bar" style="height: 90%;"></div>
+                            <div class="bar" style="height: 55%;"></div>
+                            <div class="bar" style="height: 72%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                        </div>
+
+
+                        <h2 class="title" onclick="abrirBarraLateral()">Pharrel 4 count tag</h2>
+
+                        <div class="user-info">
+                            <a href="#" class="user-avatar"></a>
+                            <a href="#" class="user-name">Usuário</a>
+                        </div>
+
+                        <div class="card-tags">
+                            <a href="#" class="card-tag">#4/4</a>
+                            <a href="#" class="card-tag">#144bpm</a>
+                            <a href="#" class="card-tag">#distorted</a>
+                            <a href="#" class="card-tag">#rap</a>
+                        </div>
+
+                        <div class="actions">
+                            <button title="Download"><img src="../img/icon_download.png" alt=""></button>
+                            <button title="Salvar"><img src="../img/icon_bookmark.png" alt=""></button>
+                            <button title="Curtir"><img src="../img/icon_like.png" alt=""></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card2">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
+                        <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
+                        <!-- lmao -->
+                        <div class="bars">
+                            <div class="bar" style="height: 40%;"></div>
+                            <div class="bar" style="height: 75%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                            <div class="bar" style="height: 90%;"></div>
+                            <div class="bar" style="height: 100%;"></div>
+                            <div class="bar" style="height: 65%;"></div>
+                            <div class="bar" style="height: 85%;"></div>
+                            <div class="bar" style="height: 50%;"></div>
+                            <div class="bar" style="height: 30%;"></div>
+                            <div class="bar" style="height: 45%;"></div>
+                            <div class="bar" style="height: 70%;"></div>
+                            <div class="bar" style="height: 95%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                            <div class="bar" style="height: 80%;"></div>
+                            <div class="bar" style="height: 35%;"></div>
+                            <div class="bar" style="height: 68%;"></div>
+                            <div class="bar" style="height: 90%;"></div>
+                            <div class="bar" style="height: 55%;"></div>
+                            <div class="bar" style="height: 72%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                        </div>
+
+
+                        <h2 class="title" onclick="abrirBarraLateral()">Breakcore fast beat</h2>
+
+                        <div class="user-info">
+                            <a href="#" class="user-avatar"></a>
+                            <a href="#" class="user-name">Usuário</a>
+                        </div>
+
+                        <div class="card-tags">
+                            <a href="#" class="card-tag">#4/4</a>
+                            <a href="#" class="card-tag">#144bpm</a>
+                            <a href="#" class="card-tag">#distorted</a>
+                            <a href="#" class="card-tag">#rap</a>
+                        </div>
+
+                        <div class="actions">
+                            <button title="Download"><img src="../img/icon_download.png" alt=""></button>
+                            <button title="Salvar"><img src="../img/icon_bookmark.png" alt=""></button>
+                            <button title="Curtir"><img src="../img/icon_like.png" alt=""></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card2">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
+                        <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
+                        <!-- lmao -->
+                        <div class="bars">
+                            <div class="bar" style="height: 40%;"></div>
+                            <div class="bar" style="height: 75%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                            <div class="bar" style="height: 90%;"></div>
+                            <div class="bar" style="height: 100%;"></div>
+                            <div class="bar" style="height: 65%;"></div>
+                            <div class="bar" style="height: 85%;"></div>
+                            <div class="bar" style="height: 50%;"></div>
+                            <div class="bar" style="height: 30%;"></div>
+                            <div class="bar" style="height: 45%;"></div>
+                            <div class="bar" style="height: 70%;"></div>
+                            <div class="bar" style="height: 95%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                            <div class="bar" style="height: 80%;"></div>
+                            <div class="bar" style="height: 35%;"></div>
+                            <div class="bar" style="height: 68%;"></div>
+                            <div class="bar" style="height: 90%;"></div>
+                            <div class="bar" style="height: 55%;"></div>
+                            <div class="bar" style="height: 72%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                        </div>
+
+
+                        <h2 class="title" onclick="abrirBarraLateral()">Electroswing sample</h2>
+
+                        <div class="user-info">
+                            <a href="#" class="user-avatar"></a>
+                            <a href="#" class="user-name">Usuário</a>
+                        </div>
+
+                        <div class="card-tags">
+                            <a href="#" class="card-tag">#4/4</a>
+                            <a href="#" class="card-tag">#144bpm</a>
+                            <a href="#" class="card-tag">#distorted</a>
+                            <a href="#" class="card-tag">#rap</a>
+                        </div>
+
+                        <div class="actions">
+                            <button title="Download"><img src="../img/icon_download.png" alt=""></button>
+                            <button title="Salvar"><img src="../img/icon_bookmark.png" alt=""></button>
+                            <button title="Curtir"><img src="../img/icon_like.png" alt=""></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card2">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
+                        <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
+                        <!-- lmao -->
+                        <div class="bars">
+                            <div class="bar" style="height: 40%;"></div>
+                            <div class="bar" style="height: 75%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                            <div class="bar" style="height: 90%;"></div>
+                            <div class="bar" style="height: 100%;"></div>
+                            <div class="bar" style="height: 65%;"></div>
+                            <div class="bar" style="height: 85%;"></div>
+                            <div class="bar" style="height: 50%;"></div>
+                            <div class="bar" style="height: 30%;"></div>
+                            <div class="bar" style="height: 45%;"></div>
+                            <div class="bar" style="height: 70%;"></div>
+                            <div class="bar" style="height: 95%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                            <div class="bar" style="height: 80%;"></div>
+                            <div class="bar" style="height: 35%;"></div>
+                            <div class="bar" style="height: 68%;"></div>
+                            <div class="bar" style="height: 90%;"></div>
+                            <div class="bar" style="height: 55%;"></div>
+                            <div class="bar" style="height: 72%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                        </div>
+
+
+                        <h2 class="title" onclick="abrirBarraLateral()">Blah blah blah blah</h2>
+
+                        <div class="user-info">
+                            <a href="#" class="user-avatar"></a>
+                            <a href="#" class="user-name">Usuário</a>
+                        </div>
+
+                        <div class="card-tags">
+                            <a href="#" class="card-tag">#4/4</a>
+                            <a href="#" class="card-tag">#144bpm</a>
+                            <a href="#" class="card-tag">#distorted</a>
+                            <a href="#" class="card-tag">#rap</a>
+                        </div>
+
+                        <div class="actions">
+                            <button title="Download"><img src="../img/icon_download.png" alt=""></button>
+                            <button title="Salvar"><img src="../img/icon_bookmark.png" alt=""></button>
+                            <button title="Curtir"><img src="../img/icon_like.png" alt=""></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card2">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
+                        <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
+                        <!-- lmao -->
+                        <div class="bars">
+                            <div class="bar" style="height: 40%;"></div>
+                            <div class="bar" style="height: 75%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                            <div class="bar" style="height: 90%;"></div>
+                            <div class="bar" style="height: 100%;"></div>
+                            <div class="bar" style="height: 65%;"></div>
+                            <div class="bar" style="height: 85%;"></div>
+                            <div class="bar" style="height: 50%;"></div>
+                            <div class="bar" style="height: 30%;"></div>
+                            <div class="bar" style="height: 45%;"></div>
+                            <div class="bar" style="height: 70%;"></div>
+                            <div class="bar" style="height: 95%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                            <div class="bar" style="height: 80%;"></div>
+                            <div class="bar" style="height: 35%;"></div>
+                            <div class="bar" style="height: 68%;"></div>
+                            <div class="bar" style="height: 90%;"></div>
+                            <div class="bar" style="height: 55%;"></div>
+                            <div class="bar" style="height: 72%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                        </div>
+
+
+                        <h2 class="title" onclick="abrirBarraLateral()">Distorted kanye type beat 2</h2>
+
+                        <div class="user-info">
+                            <a href="#" class="user-avatar"></a>
+                            <a href="#" class="user-name">Usuário</a>
+                        </div>
+
+                        <div class="card-tags">
+                            <a href="#" class="card-tag">#4/4</a>
+                            <a href="#" class="card-tag">#144bpm</a>
+                            <a href="#" class="card-tag">#distorted</a>
+                            <a href="#" class="card-tag">#rap</a>
+                        </div>
+
+                        <div class="actions">
+                            <button title="Download"><img src="../img/icon_download.png" alt=""></button>
+                            <button title="Salvar"><img src="../img/icon_bookmark.png" alt=""></button>
+                            <button title="Curtir"><img src="../img/icon_like.png" alt=""></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card2">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
+                        <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
+                        <!-- lmao -->
+                        <div class="bars">
+                            <div class="bar" style="height: 40%;"></div>
+                            <div class="bar" style="height: 75%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                            <div class="bar" style="height: 90%;"></div>
+                            <div class="bar" style="height: 100%;"></div>
+                            <div class="bar" style="height: 65%;"></div>
+                            <div class="bar" style="height: 85%;"></div>
+                            <div class="bar" style="height: 50%;"></div>
+                            <div class="bar" style="height: 30%;"></div>
+                            <div class="bar" style="height: 45%;"></div>
+                            <div class="bar" style="height: 70%;"></div>
+                            <div class="bar" style="height: 95%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                            <div class="bar" style="height: 80%;"></div>
+                            <div class="bar" style="height: 35%;"></div>
+                            <div class="bar" style="height: 68%;"></div>
+                            <div class="bar" style="height: 90%;"></div>
+                            <div class="bar" style="height: 55%;"></div>
+                            <div class="bar" style="height: 72%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                        </div>
+
+
+                        <h2 class="title" onclick="abrirBarraLateral()">Soft lo-fi slow sample</h2>
+
+                        <div class="user-info">
+                            <a href="#" class="user-avatar"></a>
+                            <a href="#" class="user-name">Usuário</a>
+                        </div>
+
+                        <div class="card-tags">
+                            <a href="#" class="card-tag">#4/4</a>
+                            <a href="#" class="card-tag">#144bpm</a>
+                            <a href="#" class="card-tag">#distorted</a>
+                            <a href="#" class="card-tag">#rap</a>
+                        </div>
+
+                        <div class="actions">
+                            <button title="Download"><img src="../img/icon_download.png" alt=""></button>
+                            <button title="Salvar"><img src="../img/icon_bookmark.png" alt=""></button>
+                            <button title="Curtir"><img src="../img/icon_like.png" alt=""></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card2">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
+                        <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
+                        <!-- lmao -->
+                        <div class="bars">
+                            <div class="bar" style="height: 40%;"></div>
+                            <div class="bar" style="height: 75%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                            <div class="bar" style="height: 90%;"></div>
+                            <div class="bar" style="height: 100%;"></div>
+                            <div class="bar" style="height: 65%;"></div>
+                            <div class="bar" style="height: 85%;"></div>
+                            <div class="bar" style="height: 50%;"></div>
+                            <div class="bar" style="height: 30%;"></div>
+                            <div class="bar" style="height: 45%;"></div>
+                            <div class="bar" style="height: 70%;"></div>
+                            <div class="bar" style="height: 95%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                            <div class="bar" style="height: 80%;"></div>
+                            <div class="bar" style="height: 35%;"></div>
+                            <div class="bar" style="height: 68%;"></div>
+                            <div class="bar" style="height: 90%;"></div>
+                            <div class="bar" style="height: 55%;"></div>
+                            <div class="bar" style="height: 72%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                        </div>
+
+
+                        <h2 class="title" onclick="abrirBarraLateral()">Distorted Kanye type beat 3</h2>
+
+                        <div class="user-info">
+                            <a href="#" class="user-avatar"></a>
+                            <a href="#" class="user-name">Usuário</a>
+                        </div>
+
+                        <div class="card-tags">
+                            <a href="#" class="card-tag">#4/4</a>
+                            <a href="#" class="card-tag">#144bpm</a>
+                            <a href="#" class="card-tag">#distorted</a>
+                            <a href="#" class="card-tag">#rap</a>
+                        </div>
+
+                        <div class="actions">
+                            <button title="Download"><img src="../img/icon_download.png" alt=""></button>
+                            <button title="Salvar"><img src="../img/icon_bookmark.png" alt=""></button>
+                            <button title="Curtir"><img src="../img/icon_like.png" alt=""></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card2">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
+                        <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
+                        <!-- lmao -->
+                        <div class="bars">
+                            <div class="bar" style="height: 40%;"></div>
+                            <div class="bar" style="height: 75%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                            <div class="bar" style="height: 90%;"></div>
+                            <div class="bar" style="height: 100%;"></div>
+                            <div class="bar" style="height: 65%;"></div>
+                            <div class="bar" style="height: 85%;"></div>
+                            <div class="bar" style="height: 50%;"></div>
+                            <div class="bar" style="height: 30%;"></div>
+                            <div class="bar" style="height: 45%;"></div>
+                            <div class="bar" style="height: 70%;"></div>
+                            <div class="bar" style="height: 95%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                            <div class="bar" style="height: 80%;"></div>
+                            <div class="bar" style="height: 35%;"></div>
+                            <div class="bar" style="height: 68%;"></div>
+                            <div class="bar" style="height: 90%;"></div>
+                            <div class="bar" style="height: 55%;"></div>
+                            <div class="bar" style="height: 72%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                        </div>
+
+
+                        <h2 class="title" onclick="abrirBarraLateral()">Rain on brick sample</h2>
+
+                        <div class="user-info">
+                            <a href="#" class="user-avatar"></a>
+                            <a href="#" class="user-name">Usuário</a>
+                        </div>
+
+                        <div class="card-tags">
+                            <a href="#" class="card-tag">#4/4</a>
+                            <a href="#" class="card-tag">#144bpm</a>
+                            <a href="#" class="card-tag">#distorted</a>
+                            <a href="#" class="card-tag">#rap</a>
+                        </div>
+
+                        <div class="actions">
+                            <button title="Download"><img src="../img/icon_download.png" alt=""></button>
+                            <button title="Salvar"><img src="../img/icon_bookmark.png" alt=""></button>
+                            <button title="Curtir"><img src="../img/icon_like.png" alt=""></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card2">
+                    <div class="card-waveform" onclick="abrirBarraLateral()">
+                        <!-- Placeholder waveform (substitua por SVG ou canvas real em produção) -->
+                        <!-- lmao -->
+                        <div class="bars">
+                            <div class="bar" style="height: 40%;"></div>
+                            <div class="bar" style="height: 75%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                            <div class="bar" style="height: 90%;"></div>
+                            <div class="bar" style="height: 100%;"></div>
+                            <div class="bar" style="height: 65%;"></div>
+                            <div class="bar" style="height: 85%;"></div>
+                            <div class="bar" style="height: 50%;"></div>
+                            <div class="bar" style="height: 30%;"></div>
+                            <div class="bar" style="height: 45%;"></div>
+                            <div class="bar" style="height: 70%;"></div>
+                            <div class="bar" style="height: 95%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                            <div class="bar" style="height: 80%;"></div>
+                            <div class="bar" style="height: 35%;"></div>
+                            <div class="bar" style="height: 68%;"></div>
+                            <div class="bar" style="height: 90%;"></div>
+                            <div class="bar" style="height: 55%;"></div>
+                            <div class="bar" style="height: 72%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                        </div>
+
+
+                        <h2 class="title" onclick="abrirBarraLateral()">Jazz twisted sample</h2>
+
+                        <div class="user-info">
+                            <a href="#" class="user-avatar"></a>
+                            <a href="#" class="user-name">Usuário</a>
+                        </div>
+
+                        <div class="card-tags">
+                            <a href="#" class="card-tag">#4/4</a>
+                            <a href="#" class="card-tag">#144bpm</a>
+                            <a href="#" class="card-tag">#distorted</a>
+                            <a href="#" class="card-tag">#rap</a>
+                        </div>
+
+                        <div class="actions">
+                            <button title="Download"><img src="../img/icon_download.png" alt=""></button>
+                            <button title="Salvar"><img src="../img/icon_bookmark.png" alt=""></button>
+                            <button title="Curtir"><img src="../img/icon_like.png" alt=""></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 

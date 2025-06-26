@@ -8,6 +8,7 @@ body {
 
 a{
   text-decoration: none;
+  color: white;
 }
 
 .header {
@@ -466,4 +467,168 @@ font-size: 24px;
   width: 1.5em;
   height: 1.5em;
 }
+
+/* PUBLICAR */
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  color: white
+}
+
+.upload-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.upload-box {
+  background-color: #111;
+  border: 2px solid #00cc66;
+  padding: 20px;
+  text-align: center;
+  margin: 20px;
+  width: 48%;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.upload-box .icon {
+  width: 40px;
+  height: 40px;
+  background-color: #111;
+  margin: 0 auto 10px;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input-row {
+  display: flex;
+  margin-top: 8px;
+  gap: 10px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 8px;
+  background-color: #222;
+  border: 1px solid #444;
+  border-radius: 5px;
+  color: white;
+  outline: none;
+}
+
+.tag-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.tag-upload {
+  background-color: #333;
+  padding: 6px 12px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.tag .close {
+  margin-left: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.plus-btn {
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.publish-button {
+  background-color: #28a745;
+  color: black;
+  font-size: 24px;
+  font-weight: normal;
+  padding: 16px 40px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  display: block;
+  margin: 30px auto 0;
+  transition: background-color 0.3s ease;
+}
+
+.publish-button:hover {
+  background-color: #218838;
+}
+
+/* BARRA DO USUÁRIO */
+
+.barra-lateral {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 13.5vw;
+  height: 100vh;
+  color: white;
+  background-color: #1e1e1e;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.5);
+  padding: 20px;
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.barra-lateral.ativa {
+  right: 0;
+}
+
+.fechar-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.fechar-btn:hover {
+  color: #00ff88;
+}
+
+.perfil {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.imagem-perfil {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom, #00ff55, #003300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagem-perfil img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
+
+/* PRÓPRIO USUÁRIO */
 
