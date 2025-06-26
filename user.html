@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/navbar/navbar.css">
+    <link rel="stylesheet" href="user.css">
+    <title>Usuário</title>
+</head>
+<body>
+    <nav class="sidebar">
+    <a href="#" class="nav-button">
+      <i class="fa-solid fa-house"></i>
+      <span>Início</span>
+    </a>
+    <a href="#" class="nav-button">
+      <i class="fa-solid fa-book-open"></i>
+      <span>Biblioteca</span>
+    </a>
+    <a href="#" class="nav-button">
+      <i class="fa-solid fa-arrow-up-from-bracket"></i>
+      <span>Publicar</span>
+    </a>
+    <a href="#" class="nav-button ativo">
+      <i class="fa-solid fa-user-large"></i>
+      <span>Seu perfil</span>
+    </a>
+    <div class="leave btn-default" id="leave">
+      Sair
+      <i class="fa-solid fa-arrow-right-from-bracket"></i>
+    </div>
+  </nav>
+
+  <div id="userprofile">
+    <div class="user-avatar">
+        <div class="avatar">
+            <img src="/components/img/pexels-garrettmorrow-1649771.jpg" alt="user-avatar" title="Sua foto de perfil">
+            <i class="fa-solid fa-pen-to-square"></i>
+        </div>
+        <div class="bio">
+            <h2 class="user-name">Usuário123</h2>
+            <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet reprehenderit aliquid dolore corporis, accusamus eius a consectetur explicabo. Error repudiandae facere eius voluptates ratione assumenda perspiciatis vero dolor, sed libero?</p>
+        </div>
+    </div>
+    <div id="user-description">
+        <h2 class="title">Gostos</h2>
+        <div id="user-preferences">           
+            <div class="preference">
+                <p class="subtitle">Artistas</p>
+                <div class="grid">
+                    <div class="card">Metallica</div>
+                    <div class="card">Kendrick Lamar</div>
+                    <div class="card">Kanye West</div>
+                </div>
+            </div>
+            <div class="preference">
+                <p class="subtitle">Instrumentos</p>
+                <div class="grid">
+                    <div class="card">#Guitarra</div>
+                    <div class="card">#Bateria</div>
+                    <div class="card">#Teclado</div>
+                </div>
+            </div>
+            <div class="preference">
+                <p class="subtitle">Estilos musicais</p>
+                <div class="grid">
+                    <div class="card">#Hip-Hop</div>
+                    <div class="card">#Pop</div>
+                    <div class="card">#Rock</div>
+                </div>
+            </div>
+        </div>
+    </div>  
+  </div>
+</body>
+</html>
