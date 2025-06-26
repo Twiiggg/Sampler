@@ -10,18 +10,21 @@
     <header> algo </header>
     <div class="midtainer">
         <div class="sidebar"> side ar </div>
-        <div class="main" id="main">
-            <div id="waveform">
-            </div>   
-                <button type="button" id="prev">prev</button>         
+        <div class="main">
+            <img id="throbber" src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Ajax_loader_metal_512.gif" alt="" srcset="">
+            <div id="waveform"></div>
+            <div id="spectrogram"></div>
+                <!-- <button type="button" id="prev">prev</button>-->
                 <button type="button" id="playpause">play pause</button>         
-                <button type="button" id="next">next</button>         
+                <!-- <button type="button" id="next">next</button>-->
                 <button type="button" id="loop">loop off</button>
                 <button type="button" id="wfstyle">wfstyle on</button>
+                <button type="button" id="spectro">spectrogram on</button>
 
+            <label for="volume" id="volumeValue">100%</label>
             <input type="range" name="volume" id="volume" step="0.01" min="0" max="1" value="1">
-            <input type="range" name="speed" id="speed" step="any" min="0.2" max="3" value="1">
-
+            <label for="speed" id="speedValue">1.00x</label>
+            <input type="range" name="speed" id="speed" step="0.01" min="0.15" max="3" value="1">
         </div>
         <div class="sidebar"> outra bar </div>
     </div>
