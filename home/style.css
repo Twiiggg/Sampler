@@ -44,7 +44,7 @@ font-size: 24px;
 }
 
 .sidebar {
-  width: 13vw;
+  width: 200px;
   height: 100vh;
   background-color: #121212;
   display: flex;
@@ -556,17 +556,18 @@ input[type="text"] {
 }
 
 .publish-button {
-  background-color: #28a745;
+  background-color: #00b355;
   color: black;
   font-size: 24px;
-  font-weight: normal;
+  font-family: 'Figtree', sans-serif;
+  font-weight: bold;
   padding: 16px 40px;
   border: none;
   border-radius: 15px;
   cursor: pointer;
   display: block;
   margin: 30px auto 0;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.5s ease;
 }
 
 .publish-button:hover {
