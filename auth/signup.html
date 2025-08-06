@@ -1,45 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="auth.css">
-    <title>Document</title>
+    <title>Verocai - Sign Up</title>
 </head>
 <body>
-    <form id="auth" action="" method="get">
-        <div id="label">
-            <div class="label">
-                <label for="user-name">Digite seu nick: </label> 
+    <form id="signUp" class="auth" action="" method="get">
+            <div class="input-group">
+                <div class="label">
+                    <label for="user-name">Digite seu nome: </label> 
+                </div>
+                <input type="text" name="user-name" id="userName" placeholder="Ex: usuario123" required>
             </div>
-            <input type="text" name="user-name" id="user-name" placeholder="Ex: usuario123">
-        </div>
-            <div class="label">
-                <label for="password">Digite o seu email: </label> 
+            <div class="input-group">
+                <div class="label">
+                    <label for="password">Digite o seu email: </label> 
+                </div>
+                <input type="password" name="password" id="password" placeholder="Ex: exemplo@email.com"required>        
             </div>
-        <input type="password" name="password" id="password" placeholder="Ex: exemplo@email.com">        
-        <div id="label">
-            <div class="label">
-                <label for="user-name">Confirme o seu email: </label> 
+            <div id="label">
+                <div class="label">
+                    <label for="user-name">Confirme o seu email: </label> 
+                </div>
+                <input type="text" name="user-name" id="rEmail" required>
             </div>
-            <input type="text" name="user-name" id="user-name">
-        </div>
-        <div id="label">
-            <div class="label">
-                <label for="user-name">Digite sua senha: </label>
+            <div id="label">
+                <div class="label">
+                    <label for="user-name">Digite sua senha: </label>
+                </div>
+                <input type="text" name="user-name" id="user-name" placeholder="Ex: senha123" required>
             </div>
-            <input type="text" name="user-name" id="user-name" placeholder="Ex: senha123">
-        </div>
-        <div id="label">
-            <div class="label">
-                <label for="user-name">Confirme sua senha: </label> 
+            <div id="label">
+                <div class="label">
+                    <label for="user-name">Confirme sua senha: </label> 
+                </div>
+                <input type="text" name="confirm-password" id="confirm-password" required>
             </div>
-            <input type="text" name="confirm-password" id="confirm-password" >
-        </div>
-        <div class="bottom">
-            <button class="btn-default" type="submit">Cadastrar</button>
-        </div>
-    </form>
+            <div class="bottom">
+                <button class="btn-default" type="submit">Cadastrar</button>
+            </div>
+        </form>
+        <script src=""></script>
 </body>
 </html>
