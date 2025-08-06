@@ -9,25 +9,74 @@
     <title>Verocai - Login</title>
 </head>
 <body>
-    <form id="signIn" class="auth" action="" method="get">
-        <div class="input-group">
-            <div class="label">
-                <label for="user-name">Usuário </label> 
-                <a class="signup" id="signupButton" href="signup.html">Não possui uma conta?</a>
+    <div class="container">
+        <div class="forms-container">
+            <div class="signin-form">
+                <form id="signIn" class="auth" action="" method="get">
+                    <div class="input-group">
+                        <div class="label">
+                            <i class="fa-regular fa-user"></i>
+                            <label for="user-name">Usuário</label> 
+                        </div>
+                        <input type="text" name="user-name" id="user-name" placeholder="Ex: usuario123">
+                    </div>
+                    <div class="input-group">
+                        <div class="label">
+                            <i class="fa-solid fa-lock"></i>
+                            <label for="password">Senha</label>     
+                        </div>
+                        <input type="password" name="password" id="password" placeholder="Ex: senha123">
+                    </div>
+                    <a class="signup" href="">Esqueceu sua senha?</a>
+                    <div class="bottom">
+                        <button class="btn-default" type="submit">Entrar</button>
+                    </div>
+                </form>
+                <p>ou entre com</p>
+                <div class="socials">
+                    <i class="fa-brands fa-google fa-xl g-auth"></i>
+                </div>
             </div>
-            <input type="text" name="user-name" id="user-name" placeholder="Ex: usuario123">
-        </div>
-        <div class="input-group">
-            <div class="label">
-                <label for="password">Senha </label> 
-                <a class="signup" href="">Esqueceu sua senha?</a>
+            <div class="signup-form" style="display: none;">
+                <form id="signUp" class="auth" action="" method="get">
+                    <div class="input-group">
+                        <div class="label">
+                            <label for="user-name">Digite seu nick: </label> 
+                        </div>
+                        <input type="text" name="user-name" id="user-name" placeholder="Ex: usuario123">
+                    </div>
+                    <div class="label">
+                        <label for="password">Digite o seu email: </label> 
+                    </div>
+                    <input type="password" name="password" id="password" placeholder="Ex: exemplo@email.com">        
+                    <div class="input-group">
+                        <div class="label">
+                            <label for="user-name">Confirme o seu email: </label> 
+                        </div>
+                        <input type="text" name="user-name" id="user-name">
+                    </div>
+                    <div class="input-group">
+                        <div class="label">
+                            <label for="user-name">Digite sua senha: </label>
+                        </div>
+                        <input type="text" name="user-name" id="user-name" placeholder="Ex: senha123">
+                    </div>
+                    <div class="input-group">
+                        <div class="label">
+                            <label for="user-name">Confirme sua senha: </label> 
+                        </div>
+                        <input type="text" name="confirm-password" id="confirm-password" >
+                    </div>
+                    <div class="bottom">
+                        <button class="btn-default" type="submit">Cadastrar</button>
+                    </div>
+                </form>
             </div>
-            <input type="password" name="password" id="password" placeholder="Ex: senha123">
         </div>
-        <div class="bottom">
-            <i class="fa-brands fa-google fa-xl g-auth"></i>
-            <button class="btn-default" type="submit">Entrar</button>
+        <div class="message-container">
+            
         </div>
-    </form>
+    </div>
+    
 </body>
 </html>
