@@ -16,20 +16,20 @@
                     <div class="input-group">
                         <div class="label">
                             <i class="fa-regular fa-user"></i>
-                            <label for="user-name">Usuário</label> 
+                            <label for="user-name">Email</label> 
                         </div>
-                        <input type="text" name="user-name" id="user-name" placeholder="Ex: usuario123">
+                        <input type="text" name="user-name" id="rEmail" placeholder="Ex: usuario123">
                     </div>
                     <div class="input-group">
                         <div class="label">
                             <i class="fa-solid fa-lock"></i>
                             <label for="password">Senha</label>     
                         </div>
-                        <input type="password" name="password" id="password" placeholder="Ex: senha123">
+                        <input type="password" name="password" id="rPassword" placeholder="Ex: senha123">
                     </div>
                     <a class="signup" href="">Esqueceu sua senha?</a>
                     <div class="bottom">
-                        <button class="btn-default" type="submit">Entrar</button>
+                        <button class="btn-default" id="submitSignIn" type="submit">Entrar</button>
                     </div>
                 </form>
                 <p>ou entre com</p>
@@ -39,36 +39,37 @@
             </div>
             <div class="signup-form" style="display: none;">
                 <form id="signUp" class="auth" action="" method="post">
+                    <div id="messageDiv"></div>
                     <div class="input-group">
                         <div class="label">
                             <label for="user-name">Digite seu nome: </label> 
                         </div>
-                        <input type="text" name="user-name" id="user-name" placeholder="Ex: usuario123">
+                        <input type="text" name="user-name" id="userName" placeholder="Ex: usuario123">
                     </div>
                     <div class="label">
-                        <label for="password">Digite o seu e-mail: </label> 
+                        <label for="email">Digite o seu e-mail: </label> 
                     </div>
-                    <input type="password" name="password" id="password" placeholder="Ex: exemplo@email.com">        
+                    <input type="email" name="password" id="rEmail" placeholder="Ex: exemplo@email.com">        
                     <div class="input-group">
                         <div class="label">
-                            <label for="user-name">Confirme o seu email: </label> 
+                            <label for="confirm-email">Confirme o seu email: </label> 
                         </div>
-                        <input type="text" name="user-name" id="user-name">
-                    </div>
-                    <div class="input-group">
-                        <div class="label">
-                            <label for="user-name">Digite sua senha: </label>
-                        </div>
-                        <input type="text" name="user-name" id="user-name" placeholder="Ex: senha123">
+                        <input type="text" name="confirm-email" id="confirmEmail" required>
                     </div>
                     <div class="input-group">
                         <div class="label">
-                            <label for="user-name">Confirme sua senha: </label> 
+                            <label for="password">Digite sua senha: </label>
                         </div>
-                        <input type="text" name="confirm-password" id="confirm-password" >
+                        <input type="text" name="user-name" id="rPassword" placeholder="Ex: senha123">
+                    </div>
+                    <div class="input-group">
+                        <div class="label">
+                            <label for="confirm-password">Confirme sua senha: </label> 
+                        </div>
+                        <input type="text" name="confirm-password" id="confirmPassword" >
                     </div>
                     <div class="bottom">
-                        <button class="btn-default" type="submit">Cadastrar</button>
+                        <button class="btn-default" id="submitSignUp" type="submit">Criar conta</button>
                     </div>
                 </form>
             </div>
@@ -83,6 +84,6 @@
             </div>
         </div>
     </div>
-    
+    <script type="module" src="firebaseAuth.js"></script>
 </body>
 </html>
