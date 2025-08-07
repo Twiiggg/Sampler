@@ -4,7 +4,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithP
 // cadastro de usuários no firestore
 const signUp = document.getElementById('submitSignUp');
 signUp.addEventListener('click', (event) => {
-    event.preventDefault()
+    event.preventDefault() //previne o comportamento padrão do evento
 
     //pegando os dados do usuário
     const userName = document.getElementById('userName').value;
@@ -12,7 +12,7 @@ signUp.addEventListener('click', (event) => {
     const password = document.getElementById('rPassword').value;
 
     createUserWithEmailAndPassword (auth, email, password)
-    .then((userCredential) =>{
+    .then((userCredential) => {
         const user = userCredential.user; //usuário autenticado
         const userData = { email, userName } //dados do usuário para salvar  
 
@@ -53,5 +53,7 @@ const signIn = document.getElementById('submitsignIn');
 signIn.addEventListener ('click', (event) =>{
     event.preventDefault();
 
-    const email = document.getElementById('rEmail')
+    const email = document.getElementById('rEmail');
+    const password = document.getElementById('rPassword');
+
 })

@@ -10,34 +10,38 @@
 </head>
 <body>
     <div class="container">
+        <div class="switch-buttons">
+            <a href="#signin" class="login-btn">Login</a>
+            <a href="#ignup" class="cadastro">Cadastro</a>
+        </div>
         <div class="forms-container">
-            <div class="signin-form">
+            <div class="signin-form" id="signin">
                 <form id="signIn" class="auth" action="" method="get">
                     <div class="input-group">
                         <div class="label">
-                            <i class="fa-regular fa-user"></i>
+                            <i class="fa-regular fa-user" style="color: #00b355;"></i>
                             <label for="user-name">Email</label> 
                         </div>
-                        <input type="text" name="user-name" id="rEmail" placeholder="Ex: usuario123">
+                        <input type="email" name="user-name" id="rEmail" placeholder="Ex: usuario123">
                     </div>
                     <div class="input-group">
                         <div class="label">
-                            <i class="fa-solid fa-lock"></i>
+                            <i class="fa-solid fa-lock" style="color: #00b355;"></i>
                             <label for="password">Senha</label>     
                         </div>
                         <input type="password" name="password" id="rPassword" placeholder="Ex: senha123">
                     </div>
-                    <a class="signup" href="">Esqueceu sua senha?</a>
+                    <a class="signup" href="#">Esqueceu sua senha?</a>
                     <div class="bottom">
                         <button class="btn-default" id="submitSignIn" type="submit">Entrar</button>
                     </div>
+                    <p>ou entre com</p>
+                    <div class="socials">
+                        <i class="fa-brands fa-google fa-xl g-auth"></i>
+                    </div>
                 </form>
-                <p>ou entre com</p>
-                <div class="socials">
-                    <i class="fa-brands fa-google fa-xl g-auth"></i>
-                </div>
             </div>
-            <div class="signup-form" style="display: none;">
+            <div class="signup-form" id="signup" style="display: none;">
                 <form id="signUp" class="auth" action="" method="post">
                     <div id="messageDiv"></div>
                     <div class="input-group">
@@ -74,13 +78,14 @@
                 </form>
             </div>
         </div>
-        <div class="messages-container">
+        <div class="messages-container" style="display: none;">
             <div class="msg-control signin-msg">
                 <h1>Bem vindo de volta, sampler!</h1>
             </div>
             <div class="msg-control signup-msg">
                 <h1>Bem-vindo ao Verocai!</h1>
-                <p>O melhor site para se inspirar nas suas músicas com as nossas samples!</p>
+                <p>O melhor site para se inspirar com as nossas samples</p>
+                <p></p>
             </div>
         </div>
     </div>
