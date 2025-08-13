@@ -53,7 +53,7 @@ const signIn = document.getElementById('submitsignIn');
 signIn.addEventListener ('click', (event) =>{
     event.preventDefault();
 
-    const email = document.getElementById('rEmail');
-    const password = document.getElementById('rPassword');
+    const email = document.getElementById('rEmail').value;
+    const password = document.getElementById('rPassword').value;
 
 })
