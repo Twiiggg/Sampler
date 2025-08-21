@@ -20,6 +20,15 @@ body {
     gap: 20px;
 }
 
+.feather-sun {
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .feather-sun:hover {
+    transform: rotate(45deg);
+  }
+
 .search-input {
     width: fit-content;
     height: 40px;
