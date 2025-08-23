@@ -1,5 +1,10 @@
-import { app, auth, db, doc, setDoc } from "../firebaseConfig";
+import { app, auth, db, doc, setDoc } from "firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+
+function showMessage(message, divId, status) {
+   const div = document.createElement('div');
+    div.innerHTML = ``
+}
 
 // cadastro de usuários no firestore
 const signUp = document.getElementById('submitSignUp');
@@ -17,16 +22,7 @@ signUp.addEventListener('click', (event) => {
         const userData = { email, userName } //dados do usuário para salvar  
 
         //função de mensagem exibindo mensagem de sucesso no cadastro
-        function showMessage(message, divId) {
-            const messageDiv = document.getElementById(divId);
-            messageDiv.style.display = "block";
-            messageDiv.innerHTML = message;
-            messageDiv.style.opacity = 1
-            messageDiv.style.transition = ".5s ease-in-out"
-            setTimeout(function() {
-                messageDiv.style.opacity = 0
-            }, 5000) // a msg dura 5 seg, dps desaparece
-        }
+
 
         // salvando os dados no Firestore
         const docRef = doc(db, "users", user.uid);
@@ -53,7 +49,17 @@ const signIn = document.getElementById('submitsignIn');
 signIn.addEventListener ('click', (event) =>{
     event.preventDefault();
 
-    const email = document.getElementById('rEmail').value;
-    const password = document.getElementById('rPassword').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
 
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) =>{
+        showMessage('Usuário autenticado com sucesso!', 'signInMessage')
+        const user = userCredential.user;
+        localStorage.setItem('loggedInUserId', user.uid); //salva o id do usuário no localStorage 
+        window.location.href = 'home.html';
+    })
+    .catch((error) => {
+        
+    })
 })
