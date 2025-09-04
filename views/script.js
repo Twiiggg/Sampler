@@ -26,6 +26,8 @@ function scrollSlider(direction) {
   requestAnimationFrame(animateScroll);
 }
 
+// tem que arrumar isso daqui hein
+
 function scrollSlider2(direction) {
   const slider = document.getElementById('cardSlider2');
   const cardWidth = slider.querySelector('.card2').offsetWidth + 16;

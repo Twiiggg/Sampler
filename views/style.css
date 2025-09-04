@@ -9,7 +9,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: 'Figtree', sans-serif;
-  background-color: #121212;
+  background-color: #333;
   color: white;
 }
 
@@ -47,7 +47,7 @@ font-size: 24px;
 
 .samples {
   display: flex;
-  width: 70vw;
+  width: 75vw;
 }
 
 .sidebar {
@@ -68,7 +68,7 @@ font-size: 24px;
   align-items: center;
   gap: 12px;
   padding: 10px 12px;
-  border-radius: 10px;
+  border-radius: .5rem;
   color: #ccc;
   text-decoration: none;
   font-size: 16px;
@@ -109,7 +109,6 @@ font-size: 24px;
   background-image: url('../img/icon_user_ativo.png');
 }
 
-/* Hover visual */
 .nav-button:hover, .nav-button.ativo:hover{
   background-color: #00ff88;
   color: #161616;
@@ -119,17 +118,16 @@ font-size: 24px;
 }
 
 .logout {
-  border: none;
-  position: fixed;
+  border: none;  
   background-color: transparent;
-  color: #efefef;
+  position: fixed;
+  color: #ccc;
   width: 200px;
   border-radius: .5rem;
-  padding: 10px 7px;
-  font-family: 'Figtree', sans-serif;
-  bottom: 50px;
-  left: 20px;
-  font-size: 20px;
+  padding: 10px 12px;
+  bottom: 20px;
+  left: 12px;
+  font-size: 16px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -286,6 +284,7 @@ font-size: 24px;
 
 .arrows {
   display: flex;
+  align-items: center;
   gap: 10px;
 }
 
