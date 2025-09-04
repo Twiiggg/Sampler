@@ -1,9 +1,35 @@
-import { app, auth, db, doc, setDoc } from "firebase";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { app, auth, db, doc, setDoc } from "../firebaseConfig";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from "../firebaseConfig";
 
-function showMessage(message, divId, status) {
-   const div = document.createElement('div');
-    div.innerHTML = ``
+function showMessage(status, message, toastId) {
+    const toast = document.getElementById('toast');
+    const div = document.createElement('div');
+    const title = document.getElementById('title');
+    title.classList.add('title');
+    const i = document.querySelector('i');
+    const msg = document.getElementById('message');
+    div.classList.add('toast-content');
+    div.id += toastId;
+    if (status === "Sucesso") {
+        div.classList.add('sucess');
+        i.classList.add('fa-square-check');
+        i.style.color = '#009d40';
+    } else if (status === "alert"){
+        div.classList.add('Alerta');
+        i.classList.add('fa-triangle-exclamation');
+    } else {
+        div.classList.add('error');
+        i.classList.add('fa-xmark');
+    }
+    toast.showModal()
+    title.innerText = status;
+    msg.innerText = message;
+    div.style.display = "block";
+    div.style.opacity = 1;
+    div.style.transition = ".5s ease-in-out";
+    setTimeout(() => {
+        toast.close()
+    }, 3000); // a msg dura 3 seg, dps desaparece
 }
 
 // cadastro de usuários no firestore
@@ -59,7 +85,17 @@ signIn.addEventListener ('click', (event) =>{
         localStorage.setItem('loggedInUserId', user.uid); //salva o id do usuário no localStorage 
         window.location.href = 'home.html';
     })
-    .catch((error) => {
-        
-    })
+    if (errorCode == "auth/invalid-credential"){
+            showMessage("E-mail ou senha inválidos, tente novamente");
+        } else {
+            showMessage("Erro ao validar login");
+        }
+})
+
+const popup = document.getElementById('gPopup');
+popup.addEventListener('click', event => {
+    event.preventDefault();
+
+    signInWithPopup(auth, provider)
+    .then()
 })

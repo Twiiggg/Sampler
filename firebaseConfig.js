@@ -2,7 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-analytics.js";
 import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, signOut} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that I want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -21,7 +21,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
+const provider = new GoogleAuthProvider();
+
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-export { app, auth, db, doc, setDoc }
+export { app, auth, db, doc, setDoc, getDoc, provider, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, signOut }

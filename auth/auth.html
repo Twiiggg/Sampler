@@ -36,7 +36,7 @@
                 </div>
                 <p>ou entre com</p>
                 <div class="socials">
-                    <i class="fa-brands fa-google fa-xl g-auth"></i>
+                    <i class="fa-brands fa-google fa-xl g-auth" id="gPopup"></i>
                 </div>
             </form>
         </div>    
@@ -74,6 +74,13 @@
                 <button class="btn-default" id="submitSignUp" type="submit">Criar conta</button>
             </div>
         </form>
+
+        <dialog class="toast">
+            <p class="title"> <i class="fas fa-check"></i></p>
+            <p class="message"></p>
+
+            <button class="toast-btn">Ok</button>
+        </dialog>
         <script type="module" src="firebaseAuth.js"></script>
         <script type="module" src="../firebaseConfig.js"></script>
     </div>
