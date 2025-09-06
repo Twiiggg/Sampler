@@ -4,13 +4,14 @@ html{
   scroll-behavior: smooth;
 }
 
+
+
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Figtree', sans-serif;
   background-color: #282828;
-  color: white;
 }
 
 a{
@@ -82,33 +83,6 @@ font-size: 24px;
   color: #ccc;
 }
 
-/* Cada ícone (imagem padrão cinza) */
-.home-icon        { background-image: url('../img/icon_home.png'); }
-.library-icon     { background-image: url('../img/icon_library.png'); }
-.publish-icon     { background-image: url('../img/icon_publish.png'); }
-.profile-icon     { background-image: url('../img/icon_user.png'); }
-
-/* Hover: troca para imagem ativa */
-.nav-button:hover .home-icon,
-.nav-button.ativo .home-icon {
-  background-image: url('../img/icon_home_ativo.png');
-}
-
-.nav-button:hover .library-icon,
-.nav-button.ativo .library-icon {
-  background-image: url('../img/icon_library_ativo.png');
-}
-
-.nav-button:hover .publish-icon,
-.nav-button.ativo .publish-icon {
-  background-image: url('../img/icon_publish_ativo.png');
-}
-
-.nav-button:hover .profile-icon,
-.nav-button.ativo .profile-icon {
-  background-image: url('../img/icon_user_ativo.png');
-}
-
 .nav-button:hover, .nav-button.ativo:hover{
   background-color: #00ff88;
   color: #161616;
@@ -148,6 +122,55 @@ font-size: 24px;
 .nav-button.ativo {
   background-color: #00b355;
   color: #161616;
+}
+
+#nav-bar {
+    width: 100dvw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 30px;
+    gap: 20px;
+}
+
+.bi-house-fill g{
+    cursor: pointer;
+    fill: #eee;
+    transition: .2s ease-in-out;
+}
+
+.bi-house-fill g:hover{
+    fill: #00b355;
+}
+
+.fa-magnifying-glass {
+    font-size: 22px;
+    color: #111
+}
+
+.search-input {
+    width: fit-content;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #eee;
+    padding: 5px 10px;
+    border-radius: 1rem;
+    box-shadow: 0px 2px 4px black;
+}
+
+.search-input input {
+    background-color: transparent !important;
+    font-family: 'Figtree', sans-serif;
+    font-weight: 400;
+    color: #111 !important;
+    border: none !important;
+    outline: none;
+    width: 500px;
+    font-size: 20px;
+    height: 30px;
 }
 
 /* Side-bar library */
@@ -249,6 +272,10 @@ font-size: 24px;
     width: 18px;
     height: 18px;
   }
+}
+
+.feed {
+  margin-top: 60px;
 }
 
 .center {
