@@ -2,9 +2,7 @@
 
 html{
   scroll-behavior: smooth;
-}
-
-
+} 
 
 body {
   margin: 0;
@@ -12,6 +10,8 @@ body {
   box-sizing: border-box;
   font-family: 'Figtree', sans-serif;
   background-color: #282828;
+  display: flex;
+  min-height: 100vh;
 }
 
 a{
@@ -57,11 +57,11 @@ font-size: 24px;
   background-color: #121212;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
   padding: 20px 10px;
   gap: 15px;
-  position: fixed;
-  top: 0;
-  left: 0;
+  border-radius: 0px .5rem .5rem 0px;
 }
 
 .nav-button {
@@ -94,12 +94,10 @@ font-size: 24px;
 .logout {
   border: none;  
   background-color: transparent;
-  position: fixed;
   color: #ccc;
   width: 200px;
   border-radius: .5rem;
   padding: 10px 12px;
-  bottom: 20px;
   left: 12px;
   font-size: 16px;
   display: flex;
@@ -110,7 +108,7 @@ font-size: 24px;
 }
 
 .logout i {
-  font-size: 25px;
+  font-size: 18px;
 }
 
 .logout:hover{
@@ -258,7 +256,7 @@ font-size: 24px;
     z-index: 1000;
   }
 
-  .nav-button {
+  .nav-button, .logout {
     flex-direction: column;
     justify-content: center;
     gap: 4px;
@@ -276,6 +274,7 @@ font-size: 24px;
 
 .feed {
   margin-top: 60px;
+  margin-left: 220px;
 }
 
 .center {
