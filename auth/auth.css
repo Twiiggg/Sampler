@@ -97,7 +97,9 @@ label {
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     opacity: 0;
     transform: translateX(100%);
-    animation: slideIn .5s backwards, fadeOut .5s forwards
+    animation: slideIn .5s backwards, fadeOut .5s forwards;
+    background-color: teal;
+    color: #eee;
 }
 
 @keyframes slideIn {
@@ -125,9 +127,11 @@ label {
     padding: 10px 12px;
     font-size: 15px;
     font-weight: 600;
-    background-color: teal;
-    color: #eee;
     transition: .5s ease-in-out;
+    border-radius: .5rem;
+    background-color: #00742e;
+    color: #eee;
+    transition: .2s ease-in-out;
 }
 
 .toast-btn:hover {
