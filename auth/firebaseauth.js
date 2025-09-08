@@ -1,11 +1,9 @@
 import { app, auth, db, doc, setDoc } from "../firebaseConfig";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from "../firebaseConfig";
 
-function showMessage(status, message, toastId) {
+function showMessage(status, message) {
     const toast = document.getElementById('toast');
-    const div = document.createElement('div');
     const title = document.getElementById('title');
-    title.classList.add('title');
     const i = document.querySelector('i');
     const msg = document.getElementById('message');
     div.classList.add('toast-content');
@@ -24,8 +22,6 @@ function showMessage(status, message, toastId) {
     toast.showModal()
     title.innerText = status;
     msg.innerText = message;
-    div.style.display = "block";
-    div.style.opacity = 1;
     div.style.transition = ".5s ease-in-out";
     setTimeout(() => {
         toast.close()
@@ -48,7 +44,7 @@ signUp.addEventListener('click', (event) => {
         const userData = { email, userName } //dados do usuário para salvar  
 
         //função de mensagem exibindo mensagem de sucesso no cadastro
-
+        showMessage("Cadastro realizado com sucesso")
 
         // salvando os dados no Firestore
         const docRef = doc(db, "users", user.uid);
@@ -63,7 +59,7 @@ signUp.addEventListener('click', (event) => {
     .catch((error)=>{
         const errorCode = error.code;
         if (errorCode == "auth/email-already-is-use"){
-            showMessage("Endereço de email já existe");
+            showMessage( "Alerta","Endereço de email já existe");
         } else {
             showMessage("Erro ao criar novo usuário")
         }
@@ -85,12 +81,14 @@ signIn.addEventListener ('click', (event) =>{
         localStorage.setItem('loggedInUserId', user.uid); //salva o id do usuário no localStorage 
         window.location.href = 'home.html';
     })
-    if (errorCode == "auth/invalid-credential"){
-            showMessage("E-mail ou senha inválidos, tente novamente");
+    .catch(error =>{
+        if (errorCode == "auth/invalid-credential"){
+            showMessage("Alerta", "E-mail ou senha inválidos, tente novamente");
         } else {
-            showMessage("Erro ao validar login");
+            showMessage( "Erro", "Erro ao validar login");
         }
-})
+    });
+});
 
 const popup = document.getElementById('gPopup');
 popup.addEventListener('click', event => {
