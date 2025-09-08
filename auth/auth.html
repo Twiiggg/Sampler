@@ -76,9 +76,11 @@
         </form>
 
         <dialog class="toast">
-            <p class="title"> <i class="fas fa-check"></i></p>
-            <p class="message"></p>
-
+            <div class="toast-header">
+                <p id="title" class="title"> <i class="fas fa-check"></i></p>
+                <i id="x-button" class="fas fa-xmark" style="color: #111;"></i>
+            </div>
+            <p id="message" class="message"></p>
             <button class="toast-btn">Ok</button>
         </dialog>
         <script type="module" src="firebaseAuth.js"></script>

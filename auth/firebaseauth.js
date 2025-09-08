@@ -1,11 +1,11 @@
 import { app, auth, db, doc, setDoc } from "../firebaseConfig";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from "../firebaseConfig";
 
-function showMessage(status, message, toastId) {
+function showMessage({status, message, toastId}) {
     const toast = document.getElementById('toast');
     const div = document.createElement('div');
-    const title = document.getElementById('title');
-    title.classList.add('title');
+    const titulo = document.getElementById('title');
+    titulo.classList.add('title');
     const i = document.querySelector('i');
     const msg = document.getElementById('message');
     div.classList.add('toast-content');
@@ -17,12 +17,14 @@ function showMessage(status, message, toastId) {
     } else if (status === "alert"){
         div.classList.add('Alerta');
         i.classList.add('fa-triangle-exclamation');
+        i.style.color = "#ffc000";
     } else {
         div.classList.add('error');
         i.classList.add('fa-xmark');
+        i.style.color="#ff0000";
     }
     toast.showModal()
-    title.innerText = status;
+    titulo.innerText = status;
     msg.innerText = message;
     div.style.display = "block";
     div.style.opacity = 1;
@@ -48,7 +50,11 @@ signUp.addEventListener('click', (event) => {
         const userData = { email, userName } //dados do usuário para salvar  
 
         //função de mensagem exibindo mensagem de sucesso no cadastro
-
+        showMessage({
+            status: "Sucesso",
+            message: "Usuário cadastrado com sucesso!",
+            toastId: "signUpMessage"
+        });
 
         // salvando os dados no Firestore
         const docRef = doc(db, "users", user.uid);
@@ -63,9 +69,17 @@ signUp.addEventListener('click', (event) => {
     .catch((error)=>{
         const errorCode = error.code;
         if (errorCode == "auth/email-already-is-use"){
-            showMessage("Endereço de email já existe");
+            showMessage({
+                status: "Alerta",
+                message: "Existe uma conta com esse e-mail. Faça login para continuar",
+                toastId: "signUpMessage"
+            });
         } else {
-            showMessage("Erro ao criar novo usuário")
+            showMessage({
+                status: "Erro",
+                message: "Falha ao criar novo usuário, tente novamente",
+                toastId: "signUpMessage"
+            });
         }
     });
 })
@@ -80,15 +94,27 @@ signIn.addEventListener ('click', (event) =>{
 
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) =>{
-        showMessage('Usuário autenticado com sucesso!', 'signInMessage')
+        showMessage({
+            status: "Sucesso",
+            message: "Usuário autenticado, bem-vindo!",
+            toastId: "signInMessage"
+        });
         const user = userCredential.user;
         localStorage.setItem('loggedInUserId', user.uid); //salva o id do usuário no localStorage 
         window.location.href = 'home.html';
     })
     if (errorCode == "auth/invalid-credential"){
-            showMessage("E-mail ou senha inválidos, tente novamente");
+            showMessage({
+                status: "Erro",
+                message: "E-mail ou senha inválidos",
+                toastId: "signInMessage"
+            });
         } else {
-            showMessage("Erro ao validar login");
+            showMessage({
+                status: "Erro",
+                message: "Erro ao autenticar usuário, tente novamente",
+                toastId: "signInMessage"
+            });
         }
 })
 
