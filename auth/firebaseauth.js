@@ -1,6 +1,7 @@
 import { app, auth, db, doc, setDoc } from "../firebaseConfig";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from "../firebaseConfig";
 
+
 function showMessage(status, message) {
     const toast = document.querySelector('dialog'); //pega o toast
     const title = document.getElementById('title'); //pega o titulo do toast
@@ -13,9 +14,11 @@ function showMessage(status, message) {
     } else if (status === "Alerta"){
         toast.classList.add('alert');
         i.classList.add('fa-triangle-exclamation');
+        i.style.color = "#ffc000";
     } else {
         toast.classList.add('error');
         i.classList.add('fa-xmark');
+        i.style.color="#ff0000";
     }
     toast.showModal()
     title.innerText = status; //
@@ -42,7 +45,10 @@ signUp.addEventListener('click', (event) => {
         const userData = { email, userName } //dados do usuário para salvar  
 
         //função de mensagem exibindo mensagem de sucesso no cadastro
-        showMessage("Cadastro realizado com sucesso")
+        showMessage({
+            status: "Sucesso",
+            message: "Usuário cadastrado com sucesso!"
+        });
 
         // salvando os dados no Firestore
         const docRef = doc(db, "users", user.uid);
@@ -57,9 +63,15 @@ signUp.addEventListener('click', (event) => {
     .catch((error)=>{
         const errorCode = error.code;
         if (errorCode == "auth/email-already-is-use"){
-            showMessage( "Alerta","Endereço de email já existe");
+            showMessage({
+                status: "Alerta",
+                message: "Existe uma conta com esse e-mail. Faça login para continuar",
+            });
         } else {
-            showMessage("Erro ao criar novo usuário")
+            showMessage({
+                status: "Erro",
+                message: "Falha ao criar novo usuário, tente novamente",
+            });
         }
     });
 })
@@ -74,16 +86,19 @@ signIn.addEventListener ('click', (event) =>{
 
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) =>{
-        showMessage('Usuário autenticado com sucesso!', 'signInMessage')
+        showMessage({
+            status: "Sucesso",
+            message: "Usuário autenticado, bem-vindo!",
+        });
         const user = userCredential.user;
         localStorage.setItem('loggedInUserId', user.uid); //salva o id do usuário no localStorage 
-        window.location.href = 'home.html';
+        window.location.href = '../views/home.html';
     })
     .catch(error =>{
         if (errorCode == "auth/invalid-credential"){
-            showMessage("Alerta", "E-mail ou senha inválidos, tente novamente");
+            showMessage({status:"Alerta", message:"E-mail ou senha inválidos, tente novamente"});
         } else {
-            showMessage( "Erro", "Erro ao validar login");
+            showMessage({status: "Erro", message: "Erro ao validar login"});
         }
     });
 });
