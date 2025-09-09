@@ -63,6 +63,13 @@ body{
     border-radius: 1rem;
     border: none;
     background-repeat: no-repeat;
+    transition: 150ms linear;
+}
+.actionbutton:hover{
+    background-color: #eeeeee;
+}
+.actionbutton:active{
+    transform: translateY(0.25rem);
 }
 
 #playpause {background-image: url(img/play.png);}

@@ -2,13 +2,16 @@ import WaveSurfer from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/wavesu
 import Spectrogram from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/plugins/spectrogram.esm.js'
 import RegionsPlugin from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/plugins/regions.esm.js'
 import Hover from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/plugins/hover.esm.js'
+import Minimap from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/plugins/minimap.esm.js'
+import Zoom from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/plugins/zoom.esm.js'
+import Timeline from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/plugins/timeline.esm.js'
+// import Spectrogram from '../node_modules/wavesurfer.js/dist/plugins/spectrogram.esm.js';
 // // import de envelope
 // import EnvelopePlugin from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/plugins/envelope.esm.js'
-// import Spectrogram from '../node_modules/wavesurfer.js/dist/plugins/spectrogram.esm.js';
 
 let options= {
   container: '#waveform',
-  url: "./audio/TheAmenBreak.ogg",
+  url: "./audio/TheLickSwing.opus",
   normalize: false,
   waveColor: "#7f7f7f",
   progressColor: "#56e45e",
@@ -22,10 +25,10 @@ let options= {
   autoplay: false,
   interact: true,
   dragToSeek: true,
-  hideScrollbar: false,
+  hideScrollbar: true,
   audioRate: 1,
   sampleRate: 8000,
-  minPxPerSec: 2,
+  // minPxPerSec: 20,
     plugins: [
     Hover.create({
       lineColor: '#00ff00',
@@ -37,6 +40,9 @@ let options= {
     })
   ],
 }
+let wavesurfer = WaveSurfer.create(options)
+
+
 let spectroOptions = {
   labels: true,
   height: 200,
@@ -47,6 +53,35 @@ let spectroOptions = {
   fftSamples: 1024,
   labelsBackground: 'rgba(0, 0, 0, 0.05)',
   // useWebWorker: true
+}
+let minimapOptions = {
+  normalize: false,
+  waveColor: "#444444",
+  progressColor: "#01823E",
+  cursorColor: "#9d9d9d",
+  cursorWidth: 2,
+  barWidth: 1,
+  barGap: 1,
+  barRadius: 4,
+  height: 40,
+  barAlign: "bottom",
+  fillParent: true,   
+  interact: true,
+  dragToSeek: true,
+  hideScrollbar: true,
+  overlayColor: '#ffffff10'
+}
+
+let zoomOptions = {
+  // the amount of zoom per wheel step, e.g. 0.5 means a 50% magnification per scroll
+  // scale: 0.1,
+  // iterations: wavesurfer.getDuration()/10,
+  exponentialZooming: true,
+  // Optionally, specify the maximum pixels-per-second factor while zooming
+  maxZoom: 200,
+}
+let timelineOptions = {
+  insertPosition: 'beforebegin',
 }
 
 // let envelopeOptions = {
@@ -64,14 +99,13 @@ let spectroOptions = {
 // }
 
 // chamada de funções do wavesurfer
-let wavesurfer = WaveSurfer.create(options)
+
 let regions = wavesurfer.registerPlugin(RegionsPlugin.create())
 let spectrogram = wavesurfer.registerPlugin(Spectrogram.create(spectroOptions))
+let minimap = wavesurfer.registerPlugin(Minimap.create(minimapOptions))
+let zoom = wavesurfer.registerPlugin(Zoom.create(zoomOptions))
+let timeline = wavesurfer.registerPlugin(Timeline.create(timelineOptions))
 // const envelope = wavesurfer.registerPlugin(EnvelopePlugin.create(envelopeOptions))
-
-
-
-
 
 // const prev = document.getElementById("prev")
 // const next = document.getElementById("next")
@@ -98,7 +132,7 @@ let loopMode = false
 let spectroMode = true
 let sampleDuration = 0
 
-
+// logica de loop de region
 {
   let activeRegion = null
   regions.on('region-in', (region) => {
@@ -137,7 +171,7 @@ wavesurfer.on('timeupdate', (currentTime) => {
   timeIndicator.innerHTML = currentTime.toFixed(2) + "/" + sampleDuration.toFixed(2)
 })
 
-// muda a estilização 
+// toggle a estilização 
 function wfstyling(){
   if (wfstyleMode) {
     options.barWidth = 2
@@ -161,6 +195,7 @@ function spectroToggle(){
   }
 }
 
+// toggle images
 wavesurfer.on('play', () => {
   playpause.style.backgroundImage = "url('img/pause.png')"
 })
@@ -213,8 +248,8 @@ playpause.addEventListener('click', () => {
 // adcionar e tirar regiões
 addRegion.addEventListener('click', () => {
     regions.addRegion({
-    start: 1,
-    end: 4, // 3 sec long
+    start: wavesurfer.getCurrentTime(),
+    end: wavesurfer.getCurrentTime() + 1, // 3 sec long
     color: regionColor.value + "77" ,
     content: regionName.value ? regionName.value : "Region",
     drag: true,
@@ -271,27 +306,4 @@ window.addEventListener("keyup", event => {
     default:
       break;
   }
-})
-
-// Função de pegar id de botões de modo diferente e pior para a situação atual
-
-// function buttons(id){
-//   switch (id) {
-//     case "prev":
-//       // função
-//       break;
-  
-//     default:
-//       // nada i guess
-//       break;
-//   }
-// }
-
-// document.getElementById("main").addEventListener('click', event => {
-//   const isButton = event.target.nodeName === 'BUTTON';
-// if (!isButton) {
-//   return;
-// }
-//   buttons(event.target.id)
-// })
-  
+})  
