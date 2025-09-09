@@ -46,8 +46,16 @@
                     <input type="range" class="slider" name="speed" id="speed" step="0.01" min="0.15" max="3" value="1">
                 </div>
                 </div>
+                <div class="buttoncontainer">
+                  <div>
+                    <button type="button" class="actionbutton" id="addRegion">+R</button>
+                    <input type="text" placeholder="region name" id="regionName">
+                    <input type="color" value="#bb6588" id="regionColor">
+                  </div>
+                  <button type="button" class="actionbutton" id="removeRegion">-R</button>
+                </div>
         </div>
     <script src="https://unpkg.com/wavesurfer.js@7"></script>
-    <script type="module" src="./script.js"></script>
+    <script type="module"  src="./script.js"></script>
 </body>
 </html> 

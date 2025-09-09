@@ -1,5 +1,8 @@
-// import WaveSurfer from '../node_modules/wavesurfer.js'
-import Spectrogram from '../node_modules/wavesurfer.js/dist/plugins/spectrogram.esm.js';
+import WaveSurfer from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/wavesurfer.esm.js'
+import Spectrogram from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/plugins/spectrogram.esm.js'
+import RegionsPlugin from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/plugins/regions.esm.js'
+import Hover from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/plugins/hover.esm.js'
+// import Spectrogram from '../node_modules/wavesurfer.js/dist/plugins/spectrogram.esm.js';
 
 let options= {
   container: '#waveform',
@@ -19,40 +22,89 @@ let options= {
   dragToSeek: true,
   hideScrollbar: false,
   audioRate: 1,
-  sampleRate: 8000
+  sampleRate: 8000,
+  minPxPerSec: 2,
+    plugins: [
+    Hover.create({
+      lineColor: '#00ff00',
+      lineWidth: 2,
+      labelBackground: '#555',
+      labelColor: '#fff',
+      labelSize: '11px',
+      labelPreferLeft: false,
+    })
+  ],
 }
 let spectroOptions = {
-    labels: true,
-    height: 200,
-    splitChannels: false,
-    scale: 'mel',
-    frequencyMax: 8000,
-    frequencyMin: 0,
-    fftSamples: 1024,
-    labelsBackground: 'rgba(0, 0, 0, 0.05)'
-  }
+  labels: true,
+  height: 200,
+  splitChannels: false,
+  scale: 'mel',
+  frequencyMax: options.sampleRate/2,
+  frequencyMin: 0,
+  fftSamples: 1024,
+  labelsBackground: 'rgba(0, 0, 0, 0.05)',
+  // useWebWorker: true
+}
 
 let wavesurfer = WaveSurfer.create(options)
+let regions = wavesurfer.registerPlugin(RegionsPlugin.create())
 let spectrogram = wavesurfer.registerPlugin(Spectrogram.create(spectroOptions))
 
 
-// let prev = document.getElementById("prev")
-// let next = document.getElementById("next")
-let playpause = document.getElementById("playpause")
-let volumeslider = document.getElementById("volume")
-let volumeValue = document.getElementById("volumeValue")
-let speed = document.getElementById("speed")
-let speedValue = document.getElementById("speedValue")
-let loop = document.getElementById("loop")
-let wfstyle = document.getElementById("wfstyle")
-let spectro = document.getElementById("spectro")
-let timeIndicator = document.getElementById("timeIndicator")
-// let throbber = document.getElementById("throbber")
+// gerador de cor aleatória
+
+
+// const prev = document.getElementById("prev")
+// const next = document.getElementById("next")
+const playpause = document.getElementById("playpause")
+const volumeslider = document.getElementById("volume")
+const volumeValue = document.getElementById("volumeValue")
+const speed = document.getElementById("speed")
+const speedValue = document.getElementById("speedValue")
+const loop = document.getElementById("loop")
+const wfstyle = document.getElementById("wfstyle")
+const spectro = document.getElementById("spectro")
+const timeIndicator = document.getElementById("timeIndicator")
+const addRegion = document.getElementById("addRegion")
+const removeRegion = document.getElementById("removeRegion")
+let regionName = document.getElementById("regionName")
+const regionColor = document.getElementById("regionColor")
+// const throbber = document.getElementById("throbber")
 
 let wfstyleMode = true
 let loopMode = false
 let spectroMode = true
 let sampleDuration = 0
+
+
+{
+  let activeRegion = null
+  regions.on('region-in', (region) => {
+    console.log('region-in', region)
+    activeRegion = region
+  })
+  regions.on('region-out', (region) => {
+    console.log('region-out', region)
+    if (activeRegion === region) {
+      if (loopMode) {
+        region.play()
+      } else {
+        activeRegion = null
+      }
+    }
+  })
+  regions.on('region-clicked', (region, e) => {
+    e.stopPropagation() // prevent triggering a click on the waveform
+    activeRegion = region
+    region.play(true)
+  })
+  // Reset the active region when the user clicks anywhere in the waveform
+  wavesurfer.on('interaction', () => {
+    activeRegion = null
+  })
+}
+
 
 // indicador de duração
 wavesurfer.on('decode', (duration) => {
@@ -135,6 +187,26 @@ speed.addEventListener('input', () => {
 // playPause
 playpause.addEventListener('click', () => {
   wavesurfer.playPause()
+})
+
+// adcionar e tirar regiões
+addRegion.addEventListener('click', () => {
+    regions.addRegion({
+    start: 1,
+    end: 4, // 3 sec long
+    color: regionColor.value + "77" ,
+    content: regionName.value ? regionName.value : "Region",
+    drag: true,
+    resize: true,
+    })
+})
+removeRegion.addEventListener('click', () => {
+  regions.clearRegions()
+  // const allRegions = regions.getRegions()
+  // if (allRegions.length > 0) {
+  //   const last = allRegions[allRegions.length - 1]
+  //   last.remove()
+  // }
 })
 
 
