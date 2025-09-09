@@ -1,29 +1,27 @@
 import { app, auth, db, doc, setDoc } from "../firebaseConfig";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from "../firebaseConfig";
 
-function showMessage({status, message}) {
-    const toast = document.getElementById('toast');
-    const div = document.createElement('div');
-    const titulo = document.getElementById('title');
-    titulo.classList.add('title');
-    const msg = document.getElementById('message');
-    div.classList.add('toast-content');
-    div.id += toastId;
+
+function showMessage(status, message) {
+    const toast = document.querySelector('dialog'); //pega o toast
+    const title = document.getElementById('title'); //pega o titulo do toast
+    const i = document.querySelector('i'); //ícone ao lado do titulo
+    const msg = document.getElementById('message'); //tag p que vai receber a mensagem 
+    //muda as cores do toast dependendo do status da mensagem 
     if (status === "Sucesso") {
-        div.classList.add('sucess');
+        toast.classList.add('sucess');
         i.classList.add('fa-square-check');
-        i.style.color = '#009d40';
-    } else if (status === "alert"){
-        div.classList.add('Alerta');
+    } else if (status === "Alerta"){
+        toast.classList.add('alert');
         i.classList.add('fa-triangle-exclamation');
         i.style.color = "#ffc000";
     } else {
-        div.classList.add('error');
+        toast.classList.add('error');
         i.classList.add('fa-xmark');
         i.style.color="#ff0000";
     }
     toast.showModal()
-    titulo.innerText = status;
+    title.innerText = status; //
     msg.innerText = message;
     div.style.transition = ".5s ease-in-out";
     setTimeout(() => {

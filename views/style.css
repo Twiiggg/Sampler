@@ -335,8 +335,14 @@ a{
   border-radius: 50%;
   width: 35px;
   height: 35px;
-  color: white;
+  color: #eee;
   cursor: pointer;
+  transition: .2s ease-in-out;
+}
+
+.arrow:hover{
+  background-color: #eee;
+  color: #111;
 }
 
 .slider {
