@@ -2,6 +2,8 @@ import WaveSurfer from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/wavesu
 import Spectrogram from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/plugins/spectrogram.esm.js'
 import RegionsPlugin from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/plugins/regions.esm.js'
 import Hover from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/plugins/hover.esm.js'
+// // import de envelope
+// import EnvelopePlugin from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/plugins/envelope.esm.js'
 // import Spectrogram from '../node_modules/wavesurfer.js/dist/plugins/spectrogram.esm.js';
 
 let options= {
@@ -30,7 +32,7 @@ let options= {
       lineWidth: 2,
       labelBackground: '#555',
       labelColor: '#fff',
-      labelSize: '11px',
+      labelSize: '13px',
       labelPreferLeft: false,
     })
   ],
@@ -47,12 +49,28 @@ let spectroOptions = {
   // useWebWorker: true
 }
 
+// let envelopeOptions = {
+//   volume: 0.8,
+//   lineColor: 'rgba(255, 0, 0, 0.5)',
+//   lineWidth: 4,
+//   dragPointSize: 12,
+//   dragLine: true,
+//   dragPointFill: 'rgba(0, 255, 255, 0.8)',
+//   dragPointStroke: 'rgba(0, 0, 0, 0.5)',
+
+//   points: [
+//     { time: 1.2, volume: 0.5 },
+//   ],
+// }
+
+// chamada de funções do wavesurfer
 let wavesurfer = WaveSurfer.create(options)
 let regions = wavesurfer.registerPlugin(RegionsPlugin.create())
 let spectrogram = wavesurfer.registerPlugin(Spectrogram.create(spectroOptions))
+// const envelope = wavesurfer.registerPlugin(EnvelopePlugin.create(envelopeOptions))
 
 
-// gerador de cor aleatória
+
 
 
 // const prev = document.getElementById("prev")
@@ -68,9 +86,12 @@ const spectro = document.getElementById("spectro")
 const timeIndicator = document.getElementById("timeIndicator")
 const addRegion = document.getElementById("addRegion")
 const removeRegion = document.getElementById("removeRegion")
-let regionName = document.getElementById("regionName")
+const regionName = document.getElementById("regionName")
 const regionColor = document.getElementById("regionColor")
 // const throbber = document.getElementById("throbber")
+// // botões de envelope
+// const addVolumePoint = document.getElementById("addVolumePoint")
+// const removeVolumePoint = document.getElementById("removeVolumePoint")
 
 let wfstyleMode = true
 let loopMode = false
@@ -208,6 +229,17 @@ removeRegion.addEventListener('click', () => {
   //   last.remove()
   // }
 })
+// // função dos botões de envelope
+// addVolumePoint.addEventListener('click', () => {
+//   envelope.addPoint({ time: 1, volume: 0.9 })
+// })
+// removeVolumePoint.addEventListener('click', () => {
+//   const allPoints = envelope.getPoints()
+//   if (allPoints.length > 0) {
+//     const last = allPoints[allPoints.length - 1]
+//     envelope.removePoint(last)
+//   }
+// })
 
 
 // modo meio estranho de fazer a barra de espaço funcionar quando segurada
