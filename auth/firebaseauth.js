@@ -94,7 +94,7 @@ signIn.addEventListener ('click', (event) =>{
         });
         const user = userCredential.user;
         localStorage.setItem('loggedInUserId', user.uid); //salva o id do usuário no localStorage 
-        window.location.href = 'home.html';
+        window.location.href = '../views/home.html';
     })
     .catch(error =>{
         if (errorCode == "auth/invalid-credential"){
