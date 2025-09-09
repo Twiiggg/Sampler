@@ -75,11 +75,12 @@
             </div>
         </form>
 
-        <dialog class="toast">
-            <p class="title"> <i class="fas fa-check"></i></p>
-            <p class="message"></p>
-
-            <button class="toast-btn">Ok</button>
+        <dialog class="toast success">
+            <div class="header">
+                <p class="title" id="title"> <i class="fas"></i></p>
+                <i class="fas fa-xmark" style="color: black;"></i>
+            </div>
+            <p class="message" id="message"></p>
         </dialog>
         <script type="module" src="firebaseAuth.js"></script>
         <script type="module" src="../firebaseConfig.js"></script>
