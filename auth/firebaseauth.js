@@ -77,7 +77,7 @@ signUp.addEventListener('click', (event) => {
 })
 
 // login do usuário com o firebase
-const signIn = document.getElementById('submitsignIn');
+const signIn = document.getElementById('submitSignIn');
 signIn.addEventListener ('click', (event) =>{
     event.preventDefault();
 
