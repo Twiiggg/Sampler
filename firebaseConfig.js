@@ -1,29 +1,27 @@
 // importando funções do firebase importantes p o login
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-analytics.js";
-import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, signOut} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js';
+import { getAuth, GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js';
+import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
+import { getFirestore } from 'https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js';
 // TODO: Add SDKs for Firebase products that I want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 //configuração do firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyBawHuPMTXd1lDTJfD4QdoCjx_uxHGckCY",
-  authDomain: "verocai-ed288.firebaseapp.com",
-  projectId: "verocai-ed288",
-  storageBucket: "verocai-ed288.firebasestorage.app",
-  messagingSenderId: "909704015051",
-  appId: "1:909704015051:web:db01b2fd445c190b98ff4e",
-  measurementId: "G-3QT9EGV962"
+  apiKey: "AIzaSyCw-HZLWj02lhTUIv3iHMth6UypliZ0s1Q",
+  authDomain: "verocai-cd316.firebaseapp.com",
+  projectId: "verocai-cd316",
+  storageBucket: "verocai-cd316.firebasestorage.app",
+  messagingSenderId: "128045398398",
+  appId: "1:128045398398:web:7c39fb4389bd26c4a31b2f",
+  measurementId: "G-8N29GBSPG0"
 };
 
 // inicializano firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-
-const provider = new GoogleAuthProvider();
-
 const auth = getAuth(app);
 const db = getFirestore(app);
+const storage = getStorage(app);
+const provider = new GoogleAuthProvider();
 
-export { app, auth, db, doc, setDoc, getDoc, provider, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, signOut }
+export { app, auth, db, storage, provider };

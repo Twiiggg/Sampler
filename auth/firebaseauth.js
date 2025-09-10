@@ -1,6 +1,7 @@
-import { app, auth, db, doc, setDoc } from "../firebaseConfig";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from "../firebaseConfig";
-
+import { app, auth, db } from "../firebaseConfig";
+import { doc, setDoc } from 'https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from 'https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js';
+import { getAuth, GoogleAuthProvider } from '../firebaseConfig';
 
 function showMessage(status, message) {
     const toast = document.querySelector('dialog'); //pega o toast
@@ -86,21 +87,21 @@ signIn.addEventListener ('click', (event) =>{
 
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) =>{
-        showMessage({
-            status: "Sucesso",
-            message: "Usuário autenticado, bem-vindo!",
-        });
+        showMessage("Sucesso", "Usuário autenticado, bem-vindo!");
         const user = userCredential.user;
         localStorage.setItem('loggedInUserId', user.uid); //salva o id do usuário no localStorage 
         window.location.href = '../views/home.html';
     })
     .catch(error =>{
-        if (errorCode == "auth/invalid-credential"){
-            showMessage({status:"Alerta", message:"E-mail ou senha inválidos, tente novamente"});
-        } else {
-            showMessage({status: "Erro", message: "Erro ao validar login"});
-        }
-    });
+        console.error('Erro ao autenticar:', error.code, error.message);
+    const errorCode = error.code;   // <-- faltava isso
+    
+    if (errorCode === "auth/invalid-credential"){
+        showMessage({status:"Alerta", message:"E-mail ou senha inválidos, tente novamente"});
+    } else {
+        showMessage({status: "Erro", message: "Erro ao validar login"});
+    }
+});
 });
 
 const popup = document.getElementById('gPopup');
