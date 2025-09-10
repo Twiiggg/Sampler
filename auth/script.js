@@ -1,15 +1,11 @@
-const signInForm = document.getElementById('signin');
-const signUpForm = document.getElementById('signup');
+const goToSignup = document.getElementById('goToSignup');
+const goToSignin = document.getElementById('goToSignin');
+const container = document.getElementById('container');
 
-const signInBtn = document.querySelector('.login-btn');
-const signUpBtn = document.getElementById('.cadastro');
+goToSignup.addEventListener('click', () => {
+    container.classList.toggle('change');
+})
 
-signInBtn.addEventListener('click', function () {
-    signUpForm.style.display= "none"
-    signInForm.style.display= "block"
-});
-
-signUpBtn.addEventListener('click', function () {
-    signUpForm.style.display= "block"
-    signInForm.style.display= "none"
-});
+goToSignin.addEventListener('click', () => {
+    container.classList.toggle('change');
+})
