@@ -4,10 +4,10 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  font-family: "Figtree", sans-serif;
 }
 
 body {
-  font-family: "Figtree", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,67 +18,82 @@ body {
 
 .container {
   background-color: #444;
+  color: #eee;
   width: 760px;
   max-width: 100vw;
   height: 480px;
+  border-radius: 1rem;
   position: relative;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: hidden;
 }
+
+/* ==================== FORMS ==================== */
 .container .forms-container {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 50%;
+  height: 100%;
   text-align: center;
+  overflow: hidden;
 }
+
 .container .forms-container .form-control {
   position: absolute;
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 480px;
-  transition: all 0.5s ease-in;
+  transition: transform 0.5s ease-in, opacity 0.5s ease-in;
 }
-.container .forms-container .form-control h2 {
-  font-size: 2rem;
+
+.container .forms-container .form-control .signin-form h2 {
+  font-size: 2.3rem;
+  margin-bottom: 20px;
 }
+
 .container .forms-container .form-control form {
   display: flex;
   flex-direction: column;
   margin: 0px 30px;
 }
+
 .container .forms-container .form-control form input {
   margin: 10px 0px;
+  font-size: 16px;
   border: none;
   padding: 15px;
   background-color: #efefef;
-  border-radius: 5px;
+  border-radius: .5rem;
 }
+
 .container .forms-container .form-control form button {
   border: none;
   padding: 20px;
   margin-top: 5px;
   background-color: #059669;
-  border-radius: 5px;
+  border-radius: .5rem;
   color: #fff;
   cursor: pointer;
+  font-size: 1rem;
 }
+
 .container .forms-container .form-control form button:focus {
   outline: none;
 }
+
 .container .forms-container .form-control span {
   margin: 10px 0px;
 }
+
 .container .forms-container .form-control .socials i {
   margin: 0 5px;
   color: #fff;
-  border-radius: 50%;
+  border-radius: 1rem;
 }
-.container .forms-container .form-control .socials .fa-facebook-f {
-  padding: 5px 8px;
-  background-color: #3b5998;
-}
-.container .forms-container .form-control .socials .fa-google-plus-g {
+
+.container .forms-container .form-control .socials .fa-google {
   padding: 5px 4px;
   background-color: #db4a39;
 }
@@ -86,36 +101,60 @@ body {
   padding: 5px 6px;
   background-color: #0e76a8;
 }
-.container .forms-container .form-control.signup-form {
-  opacity: 0;
-  z-index: 1;
-  left: 200%;
-}
+
+/* estado inicial */
 .container .forms-container .form-control.signin-form {
   opacity: 1;
   z-index: 2;
-  left: 0%;
+  transform: translateX(0%);
 }
+
+.container .forms-container .form-control.signup-form {
+  opacity: 0;
+  z-index: 1;
+  transform: translateX(100%);
+}
+
+/* quando troca */
+.change .forms-container .form-control.signin-form {
+  opacity: 0;
+  z-index: 1;
+  transform: translateX(-100%);
+}
+
+.change .forms-container .form-control.signup-form {
+  opacity: 1;
+  z-index: 2;
+  transform: translateX(0%);
+}
+
+/* ==================== INTROS ==================== */
 .container .intros-container {
-  position: relative;
-  left: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
   width: 50%;
+  height: 100%;
   text-align: center;
+  overflow: hidden;
 }
+
 .container .intros-container .intro-control {
   position: absolute;
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 480px;
   color: #fff;
-  background: linear-gradient(170deg, #34d399, #059669);
-  transition: all 0.5s ease-in;
+  background: linear-gradient(170deg, #00b355, #00742e);
+  transition: transform 0.5s ease-in, opacity 0.5s ease-in;
 }
+
 .container .intros-container .intro-control .intro-control__inner {
   margin: 0px 30px;
 }
+
 .container .intros-container .intro-control button {
   border: none;
   padding: 15px 30px;
@@ -125,52 +164,45 @@ body {
   margin: 10px 0px;
   cursor: pointer;
 }
-.container .intros-container .intro-control button:focus, .container .intros-container .intro-control button:hover {
+
+.container .intros-container .intro-control button:focus,
+.container .intros-container .intro-control button:hover {
   outline: none;
   background-color: #059669;
 }
+
 .container .intros-container .intro-control h3,
 .container .intros-container .intro-control p {
   margin: 10px 0px;
 }
+
+/* estado inicial */
 .container .intros-container .intro-control.signin-intro {
   opacity: 1;
   z-index: 2;
+  transform: translateX(0%);
 }
+
 .container .intros-container .intro-control.signup-intro {
   opacity: 0;
   z-index: 1;
+  transform: translateX(100%);
 }
 
-.change .forms-container .form-control.signup-form {
-  opacity: 1;
-  z-index: 2;
-  transform: translateX(-100%);
-}
-.change .forms-container .form-control.signup-form button {
-  background-color: #2563eb !important;
-}
-.change .forms-container .form-control.signin-form {
-  opacity: 0;
-  z-index: 1;
-  transform: translateX(-100%);
-}
-.change .intros-container .intro-control {
-  transform: translateX(-100%);
-  background: linear-gradient(170deg, #3b82f6, #2563eb);
-}
-.change .intros-container .intro-control #signin-btn {
-  background-color: #2563eb;
-}
+/* quando troca */
 .change .intros-container .intro-control.signin-intro {
   opacity: 0;
   z-index: 1;
+  transform: translateX(-100%);
 }
+
 .change .intros-container .intro-control.signup-intro {
   opacity: 1;
   z-index: 2;
+  transform: translateX(0%);
 }
 
+/* ==================== RESPONSIVO ==================== */
 @media screen and (max-width: 480px) {
   .container {
     height: 100vh;
@@ -181,24 +213,26 @@ body {
     order: 2;
     width: 100%;
     height: 50vh;
+    position: relative;
   }
   .container .forms-container .form-control {
     position: absolute;
     height: 50vh;
   }
   .container .forms-container .form-control.signup-form {
-    left: 0%;
+    transform: translateX(0%);
     margin-top: 70px;
   }
   .container .intros-container {
     order: 1;
     width: 100%;
-    left: 0%;
     height: 40vh;
+    position: relative;
   }
   .container .intros-container .intro-control {
     position: absolute;
     height: 40vh;
+    transform: translateX(0%);
   }
 
   .change .forms-container .form-control.signup-form {
@@ -211,66 +245,65 @@ body {
     transform: translateX(0%);
   }
 }
-/* Notificação toast */
 
-.header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+/* ==================== TOAST ==================== */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .toast {
-    position: fixed;
-    display: flex;
-    bottom: 20px;
-    right: 20px;
-    flex-direction: column;
-    z-index: 9999;
-    border: 3px solid;
-    padding: 12px 20px;
-    border-radius: .5rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    opacity: 0;
-    transform: translateX(100%);
-    animation: slideIn .5s backwards, fadeOut .5s forwards;
+  position: fixed;
+  display: flex;
+  bottom: 20px;
+  right: 20px;
+  flex-direction: column;
+  z-index: 9999;
+  border: 3px solid;
+  padding: 12px 20px;
+  border-radius: .5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  opacity: 0;
+  transform: translateX(100%);
+  animation: slideIn .5s backwards, fadeOut .5s forwards;
 }
 
 @keyframes slideIn {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes fadeOut {
-    to {
-        opacity: 0;
-        transform: translateX(100%);
-    }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
 }
 
-
 .toast .title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #111;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111;
 }
 
 .success {
-    border-color: #00742e;
-    background-color: #90ee99;
+  border-color: #00742e;
+  background-color: #90ee99;
 }
 
-.fa-square-check{
-    color: #00b355;
+.fa-square-check {
+  color: #00b355;
 }
 
 .alert {
-    border-color: #ffa600;
-    background-color: #eec069;
+  border-color: #ffa600;
+  background-color: #eec069;
 }
 
-.error{
-    border-color: #ff0000;
-    background-color: #ff8686;
+.error {
+  border-color: #ff0000;
+  background-color: #ff8686;
 }
