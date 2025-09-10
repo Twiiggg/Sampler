@@ -101,38 +101,35 @@ if (signUpBtn) {
     });
 }
 
-// ---------- SIGN IN ----------
-const signInBtn = document.getElementById("submitSignIn");
-if (signInBtn) {
-    signInBtn.addEventListener("click", async (event) => {
-        event.preventDefault();
-        const email = document.getElementById("email")?.value?.trim();
-        const password = document.getElementById("password")?.value;
 
-        if (!email || !password) {
-            showMessage("Alerta", "Preencha e-mail e senha para entrar.");
-            return;
-        }
 
-        try {
-            const userCredential = await signInWithEmailAndPassword(auth, email, password);
-            const user = userCredential.user;
-            showMessage("Sucesso", "Usuário autenticado, bem-vindo!");
-            localStorage.setItem("loggedInUserId", user.uid);
-            setTimeout(() => (window.location.href = "../views/home.html"), 800);
-        } catch (error) {
-            console.error("Erro no signIn:", error);
-            const errorCode = error.code;
-            if (errorCode === "auth/wrong-password" || errorCode === "auth/user-not-found") {
-                showMessage("Alerta", "E-mail ou senha inválidos, tente novamente.");
-            } else if (errorCode === "auth/invalid-email") {
-                showMessage("Alerta", "E-mail inválido.");
-            } else {
-                showMessage("Erro", "Erro ao validar login.");
-            }
-        }
-    });
-}
+// login do usuário com o firebase
+const signIn = document.getElementById('submitSignIn');
+signIn.addEventListener ('click', (event) =>{
+    event.preventDefault();
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) =>{
+       showMessage("Sucesso", "Usuário autenticado, bem-vindo!");
+        const user = userCredential.user;
+        localStorage.setItem('loggedInUserId', user.uid); //salva o id do usuário no localStorage 
+        window.location.href = '../views/home.html';
+    })
+     .catch(error =>{
+        console.error('Erro ao autenticar:', error.code, error.message);
+    const errorCode = error.code;   // <-- faltava isso
+    
+    if (errorCode === "auth/invalid-credential"){
+        showMessage({status:"Alerta", message:"E-mail ou senha inválidos, tente novamente"});
+    } else {
+        showMessage({status: "Erro", message: "Erro ao validar login"});
+    }
+});
+});
+
 
 // ---------- GOOGLE POPUP ----------
 const popupBtn = document.getElementById("gPopup");
