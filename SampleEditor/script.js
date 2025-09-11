@@ -5,7 +5,6 @@ import Hover from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/plugins/hov
 import Minimap from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/plugins/minimap.esm.js'
 import Zoom from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/plugins/zoom.esm.js'
 import Timeline from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/plugins/timeline.esm.js'
-// import Spectrogram from '../node_modules/wavesurfer.js/dist/plugins/spectrogram.esm.js';
 // // import de envelope
 // import EnvelopePlugin from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/plugins/envelope.esm.js'
 
@@ -73,11 +72,7 @@ let minimapOptions = {
 }
 
 let zoomOptions = {
-  // the amount of zoom per wheel step, e.g. 0.5 means a 50% magnification per scroll
-  // scale: 0.1,
-  // iterations: wavesurfer.getDuration()/10,
   exponentialZooming: true,
-  // Optionally, specify the maximum pixels-per-second factor while zooming
   maxZoom: 200,
 }
 let timelineOptions = {
@@ -136,11 +131,9 @@ let sampleDuration = 0
 {
   let activeRegion = null
   regions.on('region-in', (region) => {
-    console.log('region-in', region)
     activeRegion = region
   })
   regions.on('region-out', (region) => {
-    console.log('region-out', region)
     if (activeRegion === region) {
       if (loopMode) {
         region.play()
