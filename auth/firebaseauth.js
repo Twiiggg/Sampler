@@ -105,29 +105,40 @@ if (signUpBtn) {
 
 // login do usuário com o firebase
 const signIn = document.getElementById('submitSignIn');
-signIn.addEventListener ('click', (event) =>{
+const loginError = document.getElementById('loginError'); // Adicione esta linha
+
+signIn.addEventListener('click', (event) => {
     event.preventDefault();
 
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
+    // Limpa mensagem anterior
+    if (loginError) loginError.style.display = "none";
+
     signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) =>{
-       showMessage("Sucesso", "Usuário autenticado, bem-vindo!");
-        const user = userCredential.user;
-        localStorage.setItem('loggedInUserId', user.uid); //salva o id do usuário no localStorage 
-        window.location.href = '../views/home.html';
-    })
-     .catch(error =>{
-        console.error('Erro ao autenticar:', error.code, error.message);
-    const errorCode = error.code;   // <-- faltava isso
-    
-    if (errorCode === "auth/invalid-credential"){
-        showMessage({status:"Alerta", message:"E-mail ou senha inválidos, tente novamente"});
-    } else {
-        showMessage({status: "Erro", message: "Erro ao validar login"});
-    }
-});
+        .then((userCredential) => {
+            showMessage("Sucesso", "Usuário autenticado, bem-vindo!");
+            const user = userCredential.user;
+            localStorage.setItem('loggedInUserId', user.uid);
+            window.location.href = '../views/index.html';
+        })
+        .catch(error => {
+            console.error('Erro ao autenticar:', error.code, error.message);
+            const errorCode = error.code;
+
+            if (errorCode === "auth/invalid-credential" || errorCode === "auth/user-not-found") {
+                if (loginError) {
+                    loginError.innerText = "E-mail ou senha inválidos, tente novamente";
+                    loginError.style.display = "inline";
+                }
+            } else {
+                if (loginError) {
+                    loginError.innerText = "Erro ao validar login";
+                    loginError.style.display = "inline";
+                }
+            }
+        });
 });
 
 

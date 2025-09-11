@@ -1,60 +1,65 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="auth.css">
     <title>Verocai - Login</title>
 </head>
+
 <body>
     <div class="container">
         <div class="forms-container">
             <div class="form-control signup-form">
-            <form action="#" id="signup">
-                <h2>Cadastro</h2>
+                <form action="#" id="signup">
+                    <h2>Cadastro</h2>
                     <input type="text" id="userName" placeholder="Nick de usuário" required />
                     <input type="number" id="age" placeholder="Idade" required>
                     <input type="email" id="rEmail" placeholder="Email" required />
                     <input type="password" id="rPassword" placeholder="Password" required />
-                <button id="submitSignUp">Cadastrar</button>
-            </form>
-            <span>ou cadastre-se com</span>
-            <div class="socials">
-                <i class="fab fa-google"></i>
-            </div>
+                    <button id="submitSignUp">Cadastrar</button>
+                </form>
+                <span>ou cadastre-se com</span>
+                <div class="socials">
+                    <i class="fab fa-google"></i>
+                </div>
             </div>
             <div class="form-control signin-form">
-            <form action="#" id="signin">
-                <h2>Login</h2>
-                <input type="text" id="email" placeholder="Username" required />
-                <input type="password" id="password" placeholder="Password" required />
-                <button id="submitSignIn">Entrar</button>
-            </form>
-            <span>ou entre com</span>
-            <div class="socials">
-                <i class="fab fa-google"></i>
-            </div>
+                <form action="#" id="signin">
+                    <h2>Login</h2>
+                    <input type="text" id="email" placeholder="Username" required />
+                    <input type="password" id="password" placeholder="Password" required />
+                    <button id="submitSignIn">Entrar</button>
+                    <span id="loginError" style="color: red; display: none; font-size: 0.95em; margin-top: 6px;"></span>
+                </form>
+                <span>ou entre com</span>
+                <div class="socials">
+                    <i class="fab fa-google"></i>
+                </div>
             </div>
         </div>
         <div class="intros-container">
             <div class="intro-control signin-intro">
-            <div class="intro-control__inner">
-                <h1>Bem-vindo de volta, produtor!</h1>
-                <button id="goToSignup">Não possui uma conta? <b>Cadastre-se</b></button>
-            </div>
+                <div class="intro-control__inner">
+                    <h1>Bem-vindo de volta, produtor!</h1>
+                    <button id="goToSignup">Não possui uma conta? <b>Cadastre-se</b></button>
+                </div>
             </div>
             <div class="intro-control signup-intro">
-            <div class="intro-control__inner">
-                <h1>Bem-vindo ao Verocai!</h1>
-                <p>
-                Expanda sua criatividade musical com nossas samples, totalmente royalty-free!
-                </p>
-                <button id="goToSignin">Já possui uma conta? <b>Faça login</b></button>
-            </div>
+                <div class="intro-control__inner">
+                    <h1>Bem-vindo ao Verocai!</h1>
+                    <p>
+                        Expanda sua criatividade musical com nossas samples, totalmente royalty-free!
+                    </p>
+                    <button id="goToSignin">Já possui uma conta? <b>Faça login</b></button>
+                </div>
             </div>
         </div>
-        </div>
+    </div>
     </div>
     <dialog class="toast success">
         <div class="header">
@@ -63,9 +68,10 @@
         </div>
         <p class="message" id="message"></p>
     </dialog>
-    
+
     <script type="module" src="firebaseAuth.js"></script>
     <script type="module" src="../firebaseConfig.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

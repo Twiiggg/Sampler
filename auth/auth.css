@@ -307,3 +307,56 @@ body {
   border-color: #ff0000;
   background-color: #ff8686;
 }
+
+.fa-circle-exclamation {
+  color: #ff0000;
+}
+
+.toast .message {
+  font-size: 1rem;
+  color: #111;
+  margin-top: 5px;
+}
+
+dialog {
+  border: none;
+  border-radius: .5rem;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+dialog .fa {
+  font-size: 2rem;
+  margin-right: 15px;
+}
+
+dialog .fa-check-circle {
+  color: #00b355;
+}
+
+dialog .fa-exclamation-circle {
+  color: #ff0000;
+}
+
+dialog h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+dialog p {
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+/* ==================== MENSAGEM DE ERRO ==================== */
+
+#message {
+  margin-top: 10px;
+  color: #ff0000; /* Cor vermelha para mensagens de erro */
+  font-weight: bold;
+  text-align: center;
+}
