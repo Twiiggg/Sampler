@@ -391,8 +391,8 @@ a{
 }
 
 .avatar {
-  width: 32px;
-  height: 32px;
+  width: 10em;
+  height: 10em; 
   border-radius: 150%;
   background-color: #0e0e0e;
   border: 2px solid green;
