@@ -4,7 +4,7 @@ function scrollSlider(direction) {
   const scrollAmount = cardWidth * 1;
   const start = slider.scrollLeft;
   const end = start + scrollAmount * direction;
-  const duration = 500; // milissegundos (mais alto = mais lento)
+  const duration = 100; // milissegundos (mais alto = mais lento)
   const startTime = performance.now();
 
   function animateScroll(currentTime) {
